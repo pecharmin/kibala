@@ -7,11 +7,11 @@ mysql --silent --raw -ubacula -pbacula bacula >/tmp/kibala-clients <<EOF
 select concat(
 	'{ "index": { "_index": "kibala", "_type": "Client", "_id": ', c.ClientId, ' } }\n',
 	'{ "ClientId": ',		c.ClientId,
-	', "Name": "',			c.Name, '"',
-	', "Uname": "',			c.Uname, '"',
-	', "AutoPrune": ',		c.AutoPrune,
-	', "FileRetention": ',		c.FileRetention,
-	', "JobRetention": ',		c.JobRetention,
+	', "ClientName": "',		c.Name, '"',
+	', "ClientUname": "',		c.Uname, '"',
+	', "ClientAutoPrune": ',	c.AutoPrune,
+	', "ClientFileRetention": ',	c.FileRetention,
+	', "ClientJobRetention": ',	c.JobRetention,
 	' }'
 ) output
 from 	Client c;

@@ -20,11 +20,21 @@
           "type": "lucene",
           "enable": true,
           "query": "_type:Client"
+        },
+        "2": {
+          "id": 2,
+          "color": "#E24D42",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "_type:JobHisto"
         }
       },
       "ids": [
         0,
-        1
+        1,
+        2
       ]
     },
     "filter": {
@@ -34,7 +44,7 @@
   },
   "rows": [
     {
-      "title": "~~~ SELECT YOUR FILTERS ~~~",
+      "title": "~~~ BACKUP CONFIGURATION ~~~",
       "height": "300px",
       "editable": true,
       "collapse": false,
@@ -49,7 +59,7 @@
           "mode": "markdown",
           "content": "",
           "style": {},
-          "title": "~~~ Select your filters ~~~"
+          "title": "~~~ Backup Configuration ~~~"
         },
         {
           "error": false,
@@ -63,7 +73,8 @@
             "mode": "all",
             "ids": [
               0,
-              1
+              1,
+              2
             ]
           },
           "field": "_type",
@@ -81,7 +92,7 @@
           "arrangement": "horizontal",
           "chart": "pie",
           "counter_pos": "below",
-          "title": "Elements",
+          "title": "Resources",
           "spyable": true,
           "tmode": "terms",
           "tstat": "total",
@@ -90,40 +101,6 @@
         {
           "error": false,
           "span": 3,
-          "editable": true,
-          "type": "terms",
-          "loadingEditor": false,
-          "field": "JobTypeName",
-          "exclude": [],
-          "missing": false,
-          "other": false,
-          "size": 10,
-          "order": "count",
-          "style": {
-            "font-size": "10pt"
-          },
-          "donut": true,
-          "tilt": false,
-          "labels": true,
-          "arrangement": "horizontal",
-          "chart": "pie",
-          "counter_pos": "below",
-          "spyable": true,
-          "queries": {
-            "mode": "all",
-            "ids": [
-              0,
-              1
-            ]
-          },
-          "tmode": "terms",
-          "tstat": "total",
-          "valuefield": "",
-          "title": "Job Type"
-        },
-        {
-          "error": false,
-          "span": 2,
           "editable": true,
           "type": "table",
           "loadingEditor": false,
@@ -136,7 +113,7 @@
           ],
           "overflow": "height",
           "fields": [
-            "Name"
+            "ClientName"
           ],
           "highlight": [],
           "sortable": false,
@@ -162,7 +139,7 @@
         },
         {
           "error": false,
-          "span": 4,
+          "span": 3,
           "editable": true,
           "type": "table",
           "loadingEditor": false,
@@ -170,7 +147,7 @@
           "pages": 40,
           "offset": 0,
           "sort": [
-            "_score",
+            "JobName",
             "desc"
           ],
           "overflow": "height",
@@ -182,7 +159,7 @@
           "header": false,
           "paging": true,
           "field_list": false,
-          "all_fields": false,
+          "all_fields": true,
           "trimFactor": 300,
           "localTime": false,
           "timeField": "@timestamp",
@@ -198,12 +175,45 @@
           },
           "normTimes": true,
           "title": "Jobs"
+        },
+        {
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "JobTypeName",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 10,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": true,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "pie",
+          "counter_pos": "below",
+          "spyable": true,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              0
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "Job Types"
         }
       ],
       "notice": false
     },
     {
-      "title": "~~~ BACKUP INFORMATION ~~~",
+      "title": "~~~ Backup Status ~~~",
       "height": "250px",
       "editable": true,
       "collapse": false,
@@ -218,145 +228,7 @@
           "mode": "markdown",
           "content": "",
           "style": {},
-          "title": "~~~ Backup Information ~~~"
-        },
-        {
-          "error": false,
-          "span": 3,
-          "editable": true,
-          "type": "terms",
-          "loadingEditor": false,
-          "field": "JobLevelName",
-          "exclude": [
-            ""
-          ],
-          "missing": false,
-          "other": false,
-          "size": 10,
-          "order": "count",
-          "style": {
-            "font-size": "10pt"
-          },
-          "donut": true,
-          "tilt": false,
-          "labels": true,
-          "arrangement": "horizontal",
-          "chart": "pie",
-          "counter_pos": "below",
-          "spyable": true,
-          "queries": {
-            "mode": "all",
-            "ids": [
-              0,
-              1
-            ]
-          },
-          "tmode": "terms",
-          "tstat": "total",
-          "valuefield": "",
-          "title": "Backup Level"
-        },
-        {
-          "error": false,
-          "span": 3,
-          "editable": true,
-          "type": "terms",
-          "loadingEditor": false,
-          "field": "JobStatusName",
-          "exclude": [],
-          "missing": false,
-          "other": false,
-          "size": 10,
-          "order": "count",
-          "style": {
-            "font-size": "10pt"
-          },
-          "donut": true,
-          "tilt": false,
-          "labels": true,
-          "arrangement": "horizontal",
-          "chart": "pie",
-          "counter_pos": "below",
-          "spyable": true,
-          "queries": {
-            "mode": "all",
-            "ids": [
-              0,
-              1
-            ]
-          },
-          "tmode": "terms",
-          "tstat": "total",
-          "valuefield": "",
-          "title": "Backup Status"
-        },
-        {
-          "error": false,
-          "span": 3,
-          "editable": true,
-          "type": "terms",
-          "loadingEditor": false,
-          "field": "MediaVolStatus",
-          "exclude": [],
-          "missing": false,
-          "other": false,
-          "size": 10,
-          "order": "count",
-          "style": {
-            "font-size": "10pt"
-          },
-          "donut": true,
-          "tilt": false,
-          "labels": true,
-          "arrangement": "horizontal",
-          "chart": "pie",
-          "counter_pos": "below",
-          "spyable": true,
-          "queries": {
-            "mode": "all",
-            "ids": [
-              0,
-              1
-            ]
-          },
-          "tmode": "terms",
-          "tstat": "total",
-          "valuefield": "",
-          "title": "Volume Status"
-        },
-        {
-          "error": false,
-          "span": 3,
-          "editable": true,
-          "type": "terms",
-          "loadingEditor": false,
-          "field": "MediaType",
-          "exclude": [],
-          "missing": false,
-          "other": false,
-          "size": 10,
-          "order": "count",
-          "style": {
-            "font-size": "10pt"
-          },
-          "donut": true,
-          "tilt": false,
-          "labels": true,
-          "arrangement": "horizontal",
-          "chart": "pie",
-          "counter_pos": "below",
-          "spyable": true,
-          "queries": {
-            "mode": "all",
-            "ids": [
-              0,
-              1
-            ]
-          },
-          "tmode": "terms",
-          "tstat": "total",
-          "valuefield": "",
-          "title": "Media Types"
+          "title": "~~~ Backup Status ~~~"
         },
         {
           "error": false,
@@ -365,10 +237,9 @@
           "type": "stats",
           "loadingEditor": false,
           "queries": {
-            "mode": "all",
+            "mode": "selected",
             "ids": [
-              0,
-              1
+              2
             ]
           },
           "style": {
@@ -402,10 +273,9 @@
           "type": "stats",
           "loadingEditor": false,
           "queries": {
-            "mode": "all",
+            "mode": "selected",
             "ids": [
-              0,
-              1
+              2
             ]
           },
           "style": {
@@ -440,10 +310,9 @@
           "type": "stats",
           "loadingEditor": false,
           "queries": {
-            "mode": "all",
+            "mode": "selected",
             "ids": [
-              0,
-              1
+              2
             ]
           },
           "style": {
@@ -469,6 +338,197 @@
           },
           "title": "Total Files saved",
           "field": "JobFiles"
+        },
+        {
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "stats",
+          "loadingEditor": false,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              2
+            ]
+          },
+          "style": {
+            "font-size": "20pt"
+          },
+          "format": "number",
+          "mode": "count",
+          "display_breakdown": "no",
+          "sort_field": "",
+          "sort_reverse": false,
+          "label_name": "Query",
+          "value_name": "Value",
+          "spyable": true,
+          "show": {
+            "count": false,
+            "min": false,
+            "max": false,
+            "mean": false,
+            "std_deviation": false,
+            "sum_of_squares": false,
+            "total": false,
+            "variance": false
+          },
+          "title": "Test",
+          "field": "JobId"
+        },
+        {
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "JobLevelName",
+          "exclude": [
+            ""
+          ],
+          "missing": false,
+          "other": false,
+          "size": 10,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": true,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "pie",
+          "counter_pos": "below",
+          "spyable": true,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              2
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "Backup Level"
+        },
+        {
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "JobStatusName",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 10,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": true,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "pie",
+          "counter_pos": "below",
+          "spyable": true,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              2
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "Backup Status"
+        },
+        {
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "MediaVolStatus",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 10,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": true,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "pie",
+          "counter_pos": "below",
+          "spyable": true,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              2
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "Volume Status"
+        },
+        {
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "MediaType",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 10,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": true,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "pie",
+          "counter_pos": "below",
+          "spyable": true,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              2
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "Medias"
+        }
+      ],
+      "notice": false
+    },
+    {
+      "title": "~~~ Backup History ~~~",
+      "height": "300px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "text",
+          "loadingEditor": false,
+          "mode": "markdown",
+          "content": "",
+          "style": {},
+          "title": "~~~ Backup History ~~~"
         },
         {
           "error": false,
@@ -503,17 +563,16 @@
           "timeField": "@timestamp",
           "spyable": true,
           "queries": {
-            "mode": "all",
+            "mode": "selected",
             "ids": [
-              0,
-              1
+              2
             ]
           },
           "style": {
             "font-size": "9pt"
           },
           "normTimes": true,
-          "title": "Job History"
+          "title": "Job Execution History"
         }
       ],
       "notice": false
@@ -554,7 +613,8 @@
             "mode": "all",
             "ids": [
               0,
-              1
+              1,
+              2
             ]
           },
           "field_list": true,
@@ -562,7 +622,7 @@
           "trimFactor": 300,
           "normTimes": true,
           "title": "Backup Records",
-          "all_fields": false,
+          "all_fields": true,
           "localTime": false,
           "timeField": "@timestamp"
         }
@@ -602,14 +662,16 @@
       "query": "*",
       "pinned": true,
       "history": [
+        "_type:JobHisto",
+        "_type:Client",
+        "_type:Job",
         "_type:clients",
         "_type:jobs",
         "*",
         "ClientName:*",
         "JobName:*",
         "_type",
-        "Job",
-        "None"
+        "Job"
       ],
       "remember": 10,
       "enable": true
