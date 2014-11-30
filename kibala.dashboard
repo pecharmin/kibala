@@ -23,8 +23,8 @@
         }
       },
       "ids": [
-        1,
-        0
+        0,
+        1
       ]
     },
     "filter": {
@@ -522,7 +522,7 @@
       "title": "Records",
       "height": "650px",
       "editable": true,
-      "collapse": false,
+      "collapse": true,
       "collapsable": true,
       "panels": [
         {
