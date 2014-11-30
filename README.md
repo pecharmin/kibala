@@ -20,6 +20,7 @@ Requirements
 ------------
 * Bacula >= 5.2
 * Access to MySQL database of bacula
+* MySQL client (for shell)
 * Kibana >= 3
 * Java JDK
 * ElasticSearch >= 1.3
@@ -28,14 +29,18 @@ Requirements
 Installation
 ------------
 1. Setup elasticsearch instance
+1. Start elasticsearch server
 1. Setup kibana instance with your favorite webserver
-1. Run the script: kibala-init.sh
+1. Start webserver and check kibana via webbrowser
 
 Usage
 -----
+1. Run the init script for ElasticSearch index:
+   . kibala-init.sh
 1. Run the import scripts:
-*  kibala-import-bacula-clients.sh
-*  kibala-import-bacula-jobs.sh
+   . kibala-import-bacula-client.sh
+   . kibala-import-bacula-job.sh
+   . kibala-import-bacula-jobhisto.sh
 1. Open kibana instance
 1. Import kibala dashboard file into kibana: kibala.dashboard
 1. Query and filter information of your backups
