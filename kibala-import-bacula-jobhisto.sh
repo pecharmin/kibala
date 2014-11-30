@@ -117,3 +117,5 @@ order	by j.JobId desc
 EOF
 
 curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-jobhisto
+
+echo

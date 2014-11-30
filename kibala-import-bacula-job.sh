@@ -55,3 +55,5 @@ from 	Job j
 EOF
 
 curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-job
+
+echo

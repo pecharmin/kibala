@@ -14,3 +14,5 @@ curl -XPUT $ES_URL/$ES_INDEX -d '{
 		}
 	}
 }'
+
+echo
