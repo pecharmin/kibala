@@ -5,7 +5,7 @@
 # Generate and insert documents with job infos into elasticsearch for kibala
 mysql --silent --raw -ubacula -pbacula bacula >/tmp/kibala-jobs <<EOF
 select concat(
-	'{ "index": { "_index": "kibala", "_type": "jobs", "_id": ', j.JobId, ' } }\n', 
+	'{ "index": { "_index": "kibala", "_type": "Job", "_id": ', j.JobId, ' } }\n',
 	'{ "@timestamp": "',		date_format(j.SchedTime, '%Y-%m-%dT%H:%i:%s'), '"',
 	', "JobId": ',			j.JobId,
 	', "JobName": "',		j.Name, '"',

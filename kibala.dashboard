@@ -10,7 +10,7 @@
           "pin": false,
           "type": "lucene",
           "enable": true,
-          "query": "_type:jobs"
+          "query": "_type:Job"
         },
         "1": {
           "id": 1,
@@ -19,7 +19,7 @@
           "pin": false,
           "type": "lucene",
           "enable": true,
-          "query": "_type:clients"
+          "query": "_type:Client"
         }
       },
       "ids": [
