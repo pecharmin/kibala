@@ -569,17 +569,20 @@
           "pages": 200,
           "offset": 0,
           "sort": [
-            "JobStartTime",
+            "JobEndTime",
             "desc"
           ],
           "overflow": "min-height",
           "fields": [
             "JobStartTime",
+            "JobEndTime",
+            "ClientName",
             "JobName",
             "JobLevelName",
-            "JobEndTime",
             "JobBytes",
-            "JobFiles"
+            "JobFiles",
+            "JobStatusLong",
+            "FileSet"
           ],
           "highlight": [],
           "sortable": true,
