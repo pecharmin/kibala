@@ -18,7 +18,12 @@ See screenshots of
 
 Requirements
 ------------
-To be defined
+* Bacula >= 5.2
+* Access to MySQL database of bacula
+* Kibana >= 3
+* Java JDK
+* ElasticSearch >= 1.3
+* Any Webserver
 
 Installation
 ------------
