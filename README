@@ -1,6 +1,8 @@
 kibala - kibana bacula backup information visualization
 =======================================================
 
+Author: Armin Pech <github (at) arminpech (dot) de>
+
 ~~~ Introduction
 This projects supplies a tool set to visualize information of bacula backups
 using the tool kibana.
