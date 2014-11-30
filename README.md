@@ -41,7 +41,7 @@ Usage
    touch ~/.my.cnf
    chmod 600 ~/.my.cnf
    cat >>~/.my.cnf <<EOF
-   [client]
+   \[client\]
    password=your_pass
    EOF
    </code>
