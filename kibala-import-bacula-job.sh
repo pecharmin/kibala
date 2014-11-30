@@ -9,7 +9,7 @@ source $(dirname $0)/kibala.conf
 mysql	--silent --raw \
 	-h$BACULA_DB_HOST \
 	-u$BACULA_DB_USERNAME \
-	$BACULA_DB_SCHEMA >/tmp/kibala-job <<EOF
+	$BACULA_DB_SCHEMA >/tmp/kibala-spool <<EOF
 select distinct concat(
 	'{ "index": { "_index": "$ES_INDEX", "_type": "Job", "_id": "', j.Name , '" } }\n',
 	'{ "JobName": "',		j.Name, '"',
@@ -54,6 +54,6 @@ from 	Job j
 	left join Client c on j.ClientId = c.ClientId;
 EOF
 
-curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-job
+curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-spool && rm /tmp/kibala-spool
 
 echo

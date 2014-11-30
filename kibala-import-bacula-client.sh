@@ -9,7 +9,7 @@ source $(dirname $0)/kibala.conf
 mysql	--silent --raw \
 	-h$BACULA_DB_HOST \
 	-u$BACULA_DB_USERNAME \
-	$BACULA_DB_SCHEMA >/tmp/kibala-clients <<EOF
+	$BACULA_DB_SCHEMA >/tmp/kibala-spool <<EOF
 select concat(
 	'{ "index": { "_index": "$ES_INDEX", "_type": "Client", "_id": ', c.ClientId, ' } }\n',
 	'{ "ClientId": ',		c.ClientId,
@@ -23,6 +23,6 @@ select concat(
 from 	Client c;
 EOF
 
-curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-clients
+curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-spool && rm /tmp/kibala-spool
 
 echo

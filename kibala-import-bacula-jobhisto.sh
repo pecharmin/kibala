@@ -9,7 +9,7 @@ source $(dirname $0)/kibala.conf
 mysql	--silent --raw \
 	-h$BACULA_DB_HOST \
 	-u$BACULA_DB_USERNAME \
-	$BACULA_DB_SCHEMA >/tmp/kibala-jobhisto <<EOF
+	$BACULA_DB_SCHEMA >/tmp/kibala-spool <<EOF
 select concat(
 	'{ "index": { "_index": "$ES_INDEX", "_type": "JobHisto", "_id": ', j.JobId, ' } }\n',
 	'{ "@timestamp": "',		date_format(j.SchedTime, '%Y-%m-%dT%H:%i:%s'), '"',
@@ -116,6 +116,6 @@ from 	Job j
 order	by j.JobId desc
 EOF
 
-curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-jobhisto
+curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-spool && rm /tmp/kibala-spool
 
 echo
