@@ -38,8 +38,37 @@
       ]
     },
     "filter": {
-      "list": {},
-      "ids": []
+      "list": {
+        "0": {
+          "type": "querystring",
+          "query": "ClientName:fd-name",
+          "mandate": "must",
+          "active": false,
+          "alias": "",
+          "id": 0
+        },
+        "1": {
+          "type": "querystring",
+          "query": "JobLevel:f|d|i",
+          "mandate": "must",
+          "active": false,
+          "alias": "",
+          "id": 1
+        },
+        "2": {
+          "type": "querystring",
+          "query": "JobStatusName:canceledbyuser|fatalerror|error",
+          "mandate": "must",
+          "active": false,
+          "alias": "",
+          "id": 2
+        }
+      },
+      "ids": [
+        0,
+        1,
+        2
+      ]
     }
   },
   "rows": [
