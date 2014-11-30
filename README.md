@@ -12,7 +12,9 @@ cluster/instance and returned by kibana to the client.
 
 Examples
 --------
-See [Filtering](/doc/screenshots/kibala1.png) or [Information](/doc/screenshots/kibala2.png)
+See screenshots of
+* [Filtering](/doc/screenshots/kibala1.png)
+* [Information](/doc/screenshots/kibala2.png)
 
 Installation
 ------------
