@@ -29,12 +29,22 @@
           "type": "lucene",
           "enable": true,
           "query": "_type:JobHisto"
+        },
+        "3": {
+          "id": 3,
+          "color": "#EF843C",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "_type:Pool"
         }
       },
       "ids": [
         0,
         1,
-        2
+        2,
+        3
       ]
     },
     "filter": {
@@ -103,7 +113,8 @@
             "ids": [
               0,
               1,
-              2
+              2,
+              3
             ]
           },
           "field": "_type",
@@ -569,7 +580,7 @@
           "pages": 200,
           "offset": 0,
           "sort": [
-            "JobEndTime",
+            "JobStartTime",
             "desc"
           ],
           "overflow": "min-height",
@@ -694,6 +705,7 @@
       "query": "*",
       "pinned": true,
       "history": [
+        "_type:Pool",
         "_type:JobHisto",
         "_type:Client",
         "_type:Job",
@@ -702,8 +714,7 @@
         "*",
         "ClientName:*",
         "JobName:*",
-        "_type",
-        "Job"
+        "_type"
       ],
       "remember": 10,
       "enable": true
