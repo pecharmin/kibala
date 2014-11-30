@@ -615,8 +615,8 @@
             "PoolName",
             "ClientName",
             "JobName",
-            "MediaVolBytes",
-            "MediaVolStatus",
+            "JobTypeName",
+            "VolStatus",
             "VolRetention"
           ],
           "highlight": [],
@@ -630,13 +630,9 @@
           "timeField": "@timestamp",
           "spyable": true,
           "queries": {
-            "mode": "all",
+            "mode": "selected",
             "ids": [
-              0,
-              1,
-              2,
-              3,
-              4
+              3
             ]
           },
           "style": {
@@ -784,7 +780,7 @@
       "timefield": "@timestamp",
       "enable": true,
       "now": true,
-      "filter_id": 3
+      "filter_id": 4
     }
   ],
   "refresh": false
