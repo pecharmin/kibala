@@ -1,6 +1,6 @@
 #!/bin/bash
-# kibala-import-bacula-jobhisto.sh
-# Dump job history from Bacula database and import into ElasticSearch for kibala visualization
+# kibala-import-bacula-pool.sh
+# Dump pool definitions from Bacula database and import into ElasticSearch for kibala visualization
 
 # Load configuration
 source $(dirname $0)/kibala.conf
