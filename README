@@ -15,5 +15,5 @@ cluster/instance and returned by kibana to the client.
 ~~~ Usage
 # Run the script: kibala-import-bacula-jobs.sh
 # Open kibana instance
-# Import kibala dashboard
+# Import kibala dashboard file into kibana: kibala.dashboard
 # Query and filter information of your backups
