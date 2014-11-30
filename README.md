@@ -37,7 +37,7 @@ Usage
 -----
 1. Configure the kibala toolset in kibala.conf
 1. Configure database password to bacula schema
-   ```
+   * ```
    touch ~/.my.cnf
    chmod 600 ~/.my.cnf
    cat >>~/.my.cnf <<EOF
