@@ -39,3 +39,7 @@ Usage
 1. Open kibana instance
 1. Import kibala dashboard file into kibana: kibala.dashboard
 1. Query and filter information of your backups
+
+TODO
+----
+* Import volume information
