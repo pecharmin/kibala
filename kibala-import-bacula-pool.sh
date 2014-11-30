@@ -15,11 +15,11 @@ select concat(
 	'{ "PoolId": ',			p.PoolId,
 	', "PoolName": "',		p.Name, '"',
 	', "PoolType": "',		p.PoolType, '"',
-	', "PoolVolRetention": ',	p.VolRetention,
-	', "PoolVolUseDuration": ',	p.VolUseDuration,
-	', "PoolAutoPrune": ',		p.AutoPrune,
-	', "PoolRecycle": ',		p.Recycle,
-	', "PoolEnabled": ',		p.Enabled,
+	', "VolRetention": ',		p.VolRetention,
+	', "VolUseDuration": ',		p.VolUseDuration,
+	', "AutoPrune": ',		p.AutoPrune,
+	', "Recycle": ',		p.Recycle,
+	', "Enabled": ',		p.Enabled,
 	' }'
 ) output
 from 	Pool p
