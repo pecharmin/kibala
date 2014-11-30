@@ -2,9 +2,6 @@
 # kibala-import-bacula-jobs.sh
 # Dump jobs from Bacula database and import into ElasticSearch for kibala visualization
 
-# Delete current index of kibala?
-#curl -XDELETE http://localhost:9200/kibala
-
 # Generate and insert documents with job infos into elasticsearch for kibala
 mysql --silent --raw -ubacula -pbacula bacula <<EOF | curl -s -XPOST http://localhost:9200/_bulk --data-binary -
 select concat(
