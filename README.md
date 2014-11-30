@@ -10,6 +10,10 @@ using the tool kibana.
 Information of the bacula database are imported into an elasticsearch
 cluster/instance and returned by kibana to the client.
 
+Examples
+--------
+See [Filtering](/pecharmin/kibala/blob/master/doc/screenshots/kibala1.png) or [Information](/pecharmin/kibala/blob/master/doc/screenshots/kibala2.png)
+
 Installation
 ------------
 1. Setup elasticsearch instance
