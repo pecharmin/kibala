@@ -4,16 +4,26 @@
     "query": {
       "list": {
         "0": {
-          "query": "*",
-          "alias": "",
-          "color": "#7EB26D",
           "id": 0,
+          "color": "#7EB26D",
+          "alias": "",
           "pin": false,
           "type": "lucene",
-          "enable": true
+          "enable": true,
+          "query": "_type:jobs"
+        },
+        "1": {
+          "id": 1,
+          "color": "#EAB839",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "_type:clients"
         }
       },
       "ids": [
+        1,
         0
       ]
     },
@@ -52,7 +62,8 @@
           "queries": {
             "mode": "all",
             "ids": [
-              0
+              0,
+              1
             ]
           },
           "field": "_type",
@@ -101,7 +112,8 @@
           "queries": {
             "mode": "all",
             "ids": [
-              0
+              0,
+              1
             ]
           },
           "tmode": "terms",
@@ -115,8 +127,8 @@
           "editable": true,
           "type": "table",
           "loadingEditor": false,
-          "size": 50,
-          "pages": 20,
+          "size": 25,
+          "pages": 40,
           "offset": 0,
           "sort": [
             "_score",
@@ -124,12 +136,12 @@
           ],
           "overflow": "height",
           "fields": [
-            "ClientName"
+            "Name"
           ],
           "highlight": [],
           "sortable": false,
           "header": false,
-          "paging": false,
+          "paging": true,
           "field_list": false,
           "all_fields": false,
           "trimFactor": 120,
@@ -137,9 +149,9 @@
           "timeField": "@timestamp",
           "spyable": true,
           "queries": {
-            "mode": "all",
+            "mode": "selected",
             "ids": [
-              0
+              1
             ]
           },
           "style": {
@@ -154,8 +166,8 @@
           "editable": true,
           "type": "table",
           "loadingEditor": false,
-          "size": 20,
-          "pages": 50,
+          "size": 25,
+          "pages": 40,
           "offset": 0,
           "sort": [
             "_score",
@@ -168,7 +180,7 @@
           "highlight": [],
           "sortable": true,
           "header": false,
-          "paging": false,
+          "paging": true,
           "field_list": false,
           "all_fields": false,
           "trimFactor": 300,
@@ -176,7 +188,7 @@
           "timeField": "@timestamp",
           "spyable": true,
           "queries": {
-            "mode": "all",
+            "mode": "selected",
             "ids": [
               0
             ]
@@ -235,7 +247,8 @@
           "queries": {
             "mode": "all",
             "ids": [
-              0
+              0,
+              1
             ]
           },
           "tmode": "terms",
@@ -268,7 +281,8 @@
           "queries": {
             "mode": "all",
             "ids": [
-              0
+              0,
+              1
             ]
           },
           "tmode": "terms",
@@ -301,7 +315,8 @@
           "queries": {
             "mode": "all",
             "ids": [
-              0
+              0,
+              1
             ]
           },
           "tmode": "terms",
@@ -334,7 +349,8 @@
           "queries": {
             "mode": "all",
             "ids": [
-              0
+              0,
+              1
             ]
           },
           "tmode": "terms",
@@ -351,7 +367,8 @@
           "queries": {
             "mode": "all",
             "ids": [
-              0
+              0,
+              1
             ]
           },
           "style": {
@@ -388,7 +405,8 @@
           "queries": {
             "mode": "all",
             "ids": [
-              0
+              0,
+              1
             ]
           },
           "style": {
@@ -424,7 +442,8 @@
           "queries": {
             "mode": "all",
             "ids": [
-              0
+              0,
+              1
             ]
           },
           "style": {
@@ -486,7 +505,8 @@
           "queries": {
             "mode": "all",
             "ids": [
-              0
+              0,
+              1
             ]
           },
           "style": {
@@ -533,7 +553,8 @@
           "queries": {
             "mode": "all",
             "ids": [
-              0
+              0,
+              1
             ]
           },
           "field_list": true,
@@ -581,7 +602,12 @@
       "query": "*",
       "pinned": true,
       "history": [
+        "_type:clients",
+        "_type:jobs",
         "*",
+        "ClientName:*",
+        "JobName:*",
+        "_type",
         "Job",
         "None"
       ],
