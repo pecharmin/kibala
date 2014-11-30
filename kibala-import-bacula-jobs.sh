@@ -85,6 +85,7 @@ select concat(
 	', "JobErrors": ',		j.JobErrors,
 	', "JobMissingFiles": ',	j.JobMissingFiles,
 	', "JobPriorJobId": ',		j.PriorJobId,
+	', "ClientId": ',		c.ClientId,
 	', "ClientName": "',		c.Name, '"',
 	', "ClientUname": "',		c.Uname, '"',
 	', "ClientAutoPrune": ',	c.AutoPrune,
