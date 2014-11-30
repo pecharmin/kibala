@@ -599,7 +599,7 @@
       "notice": false
     },
     {
-      "title": "Database Records",
+      "title": "~~~ Database Records ~~~",
       "height": "650px",
       "editable": true,
       "collapse": true,
@@ -635,14 +635,16 @@
             "ids": [
               0,
               1,
-              2
+              2,
+              3,
+              4
             ]
           },
           "field_list": true,
           "status": "Stable",
           "trimFactor": 300,
           "normTimes": true,
-          "title": "Backup Records",
+          "title": "~~~ Database Records ~~~",
           "all_fields": true,
           "localTime": false,
           "timeField": "@timestamp"
