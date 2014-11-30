@@ -37,20 +37,20 @@ Usage
 -----
 1. Configure the kibala toolset in kibala.conf
 1. Configure database password to bacula schema
-```
-touch ~/.my.cnf
-chmod 600 ~/.my.cnf
-cat >>~/.my.cnf <<EOF
-[client]
-password=your_pass
-EOF
-```
+   ```
+   touch ~/.my.cnf
+   chmod 600 ~/.my.cnf
+   cat >>~/.my.cnf <<EOF
+   [client]
+   password=your_pass
+   EOF
+   ```
 1. Run the init script for ElasticSearch index:
-   . kibala-init.sh
+   * kibala-init.sh
 1. Run the import scripts:
-   . kibala-import-bacula-client.sh
-   . kibala-import-bacula-job.sh
-   . kibala-import-bacula-jobhisto.sh
+   * kibala-import-bacula-client.sh
+   * kibala-import-bacula-job.sh
+   * kibala-import-bacula-jobhisto.sh
 1. Open kibana instance
 1. Import kibala dashboard file into kibana: kibala.dashboard
 1. Query and filter information of your backups
