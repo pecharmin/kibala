@@ -3,7 +3,7 @@
 # Dump jobs from Bacula database and import into ElasticSearch for kibala visualization
 
 # Generate and insert documents with job infos into elasticsearch for kibala
-mysql --silent --raw -ubacula -pbacula bacula <<EOF | curl -s -XPOST http://localhost:9200/_bulk --data-binary -
+mysql --silent --raw -ubacula -pbacula bacula >/tmp/kibala-jobs <<EOF
 select concat(
 	'{ "index": { "_index": "kibala", "_type": "jobs", "_id": ', j.JobId, ' } }\n', 
 	'{ "@timestamp": "',		date_format(j.SchedTime, '%Y-%m-%dT%H:%i:%s'), '"',
@@ -108,3 +108,5 @@ from 	Job j
 	left join Status s on j.JobStatus = s.JobStatus
 order	by j.JobId desc
 EOF
+
+curl -s -XPOST http://localhost:9200/_bulk --data-binary @/tmp/kibala-jobs
