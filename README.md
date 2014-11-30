@@ -16,6 +16,10 @@ See screenshots of
 * [Filtering](/doc/screenshots/kibala1.png)
 * [Information](/doc/screenshots/kibala2.png)
 
+Requirements
+------------
+To be defined
+
 Installation
 ------------
 1. Setup elasticsearch instance
