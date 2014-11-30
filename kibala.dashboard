@@ -38,13 +38,23 @@
           "type": "lucene",
           "enable": true,
           "query": "_type:Pool"
+        },
+        "4": {
+          "id": 4,
+          "color": "#E24D42",
+          "alias": "",
+          "pin": false,
+          "type": "lucene",
+          "enable": true,
+          "query": "_type:Media"
         }
       },
       "ids": [
         0,
         1,
         2,
-        3
+        3,
+        4
       ]
     },
     "filter": {
@@ -114,7 +124,8 @@
               0,
               1,
               2,
-              3
+              3,
+              4
             ]
           },
           "field": "_type",
@@ -493,7 +504,7 @@
           "exclude": [],
           "missing": false,
           "other": false,
-          "size": 10,
+          "size": 10000,
           "order": "count",
           "style": {
             "font-size": "10pt"
@@ -508,46 +519,13 @@
           "queries": {
             "mode": "selected",
             "ids": [
-              2
+              4
             ]
           },
           "tmode": "terms",
           "tstat": "total",
           "valuefield": "",
           "title": "Volume Status"
-        },
-        {
-          "error": false,
-          "span": 3,
-          "editable": true,
-          "type": "terms",
-          "loadingEditor": false,
-          "field": "MediaType",
-          "exclude": [],
-          "missing": false,
-          "other": false,
-          "size": 10,
-          "order": "count",
-          "style": {
-            "font-size": "10pt"
-          },
-          "donut": true,
-          "tilt": false,
-          "labels": true,
-          "arrangement": "horizontal",
-          "chart": "pie",
-          "counter_pos": "below",
-          "spyable": true,
-          "queries": {
-            "mode": "selected",
-            "ids": [
-              2
-            ]
-          },
-          "tmode": "terms",
-          "tstat": "total",
-          "valuefield": "",
-          "title": "Medias"
         }
       ],
       "notice": false
@@ -705,6 +683,7 @@
       "query": "*",
       "pinned": true,
       "history": [
+        "_type:Media",
         "_type:Pool",
         "_type:JobHisto",
         "_type:Client",
@@ -713,8 +692,7 @@
         "_type:jobs",
         "*",
         "ClientName:*",
-        "JobName:*",
-        "_type"
+        "JobName:*"
       ],
       "remember": 10,
       "enable": true
@@ -752,7 +730,7 @@
       "timefield": "@timestamp",
       "enable": true,
       "now": true,
-      "filter_id": 0
+      "filter_id": 3
     }
   ],
   "refresh": false
