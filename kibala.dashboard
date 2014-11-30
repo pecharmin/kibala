@@ -615,8 +615,7 @@
             "PoolName",
             "ClientName",
             "JobName",
-            "JobTypeName",
-            "VolStatus",
+            "PoolType",
             "VolRetention"
           ],
           "highlight": [],
