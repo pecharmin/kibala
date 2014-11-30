@@ -28,7 +28,9 @@ Installation
 
 Usage
 -----
-1. Run the script: kibala-import-bacula-jobs.sh
+1. Run the import scripts:
+*  kibala-import-bacula-clients.sh
+*  kibala-import-bacula-jobs.sh
 1. Open kibana instance
 1. Import kibala dashboard file into kibana: kibala.dashboard
 1. Query and filter information of your backups
