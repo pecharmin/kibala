@@ -722,10 +722,12 @@
         "7d",
         "14d",
         "21d",
-        "30d"
+        "30d",
+        "60d",
+        "90d"
       ],
       "refresh_intervals": [
-        ""
+        "15m"
       ],
       "timefield": "@timestamp",
       "enable": true,
