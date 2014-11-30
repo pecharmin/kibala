@@ -39,9 +39,13 @@ select distinct concat(
 						when 'f' then 'VirtualFull'
 					end,
 					'"',
+	', "ClientId": ',		c.ClientId,
+	', "ClientName": "',		c.Name, '"',
+	', "ClientUname": "',		c.Uname, '"',
 	' }'
 ) output
-from 	Job j;
+from 	Job j
+	left join Client c on j.ClientId = c.ClientId;
 EOF
 
 curl -s -XPOST http://localhost:9200/_bulk --data-binary @/tmp/kibala-job
