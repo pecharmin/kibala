@@ -605,7 +605,7 @@
           "loadingEditor": false,
           "size": 10,
           "pages": 50,
-          "offset": 20,
+          "offset": 0,
           "sort": [
             "@timestamp",
             "desc"
@@ -664,7 +664,7 @@
           ],
           "type": "table",
           "size": 50,
-          "pages": 1000,
+          "pages": 40,
           "offset": 0,
           "sort": [
             "@timestamp",
