@@ -42,4 +42,4 @@ Usage
 
 TODO
 ----
-* Import volume information
+* Import volume, pool, media information
