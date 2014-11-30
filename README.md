@@ -35,6 +35,16 @@ Installation
 
 Usage
 -----
+1. Configure the kibala toolset in kibala.conf
+1. Configure database password to bacula schema
+   <code>
+   touch ~/.my.cnf
+   chmod 600 ~/.my.cnf
+   cat >>~/.my.cnf <<EOF
+   [client]
+   password=your_pass
+   EOF
+   </code>
 1. Run the init script for ElasticSearch index:
    . kibala-init.sh
 1. Run the import scripts:

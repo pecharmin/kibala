@@ -2,10 +2,16 @@
 # kibala-import-bacula-jobhisto.sh
 # Dump job history from Bacula database and import into ElasticSearch for kibala visualization
 
+# Load configuration
+source $(dirname $0)/kibala.conf
+
 # Generate and insert documents with job infos into elasticsearch for kibala
-mysql --silent --raw -ubacula -pbacula bacula >/tmp/kibala-jobhisto <<EOF
+mysql	--silent --raw \
+	-h$BACULA_DB_HOST \
+	-u$BACULA_DB_USERNAME \
+	$BACULA_DB_SCHEMA >/tmp/kibala-jobhisto <<EOF
 select concat(
-	'{ "index": { "_index": "kibala", "_type": "JobHisto", "_id": ', j.JobId, ' } }\n',
+	'{ "index": { "_index": "$ES_INDEX", "_type": "JobHisto", "_id": ', j.JobId, ' } }\n',
 	'{ "@timestamp": "',		date_format(j.SchedTime, '%Y-%m-%dT%H:%i:%s'), '"',
 	', "JobId": ',			j.JobId,
 	', "JobName": "',		j.Name, '"',
@@ -110,4 +116,4 @@ from 	Job j
 order	by j.JobId desc
 EOF
 
-curl -s -XPOST http://localhost:9200/_bulk --data-binary @/tmp/kibala-jobhisto
+curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-jobhisto
