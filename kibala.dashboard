@@ -34,7 +34,7 @@
   },
   "rows": [
     {
-      "title": "Select Filters",
+      "title": "~~~ SELECT YOUR FILTERS ~~~",
       "height": "300px",
       "editable": true,
       "collapse": false,
@@ -203,7 +203,7 @@
       "notice": false
     },
     {
-      "title": "Backup Information",
+      "title": "~~~ BACKUP INFORMATION ~~~",
       "height": "250px",
       "editable": true,
       "collapse": false,
@@ -393,7 +393,7 @@
             "variance": false
           },
           "field": "JobId",
-          "title": "Total Jobs execured"
+          "title": "Total Jobs executed"
         },
         {
           "error": false,
@@ -429,7 +429,7 @@
             "total": false,
             "variance": false
           },
-          "title": "Total Job Volume Size",
+          "title": "Total Job Size",
           "field": "JobBytes",
           "unit": "Bytes"
         },
@@ -513,13 +513,13 @@
             "font-size": "9pt"
           },
           "normTimes": true,
-          "title": "Jobs"
+          "title": "Job History"
         }
       ],
       "notice": false
     },
     {
-      "title": "Records",
+      "title": "Database Records",
       "height": "650px",
       "editable": true,
       "collapse": true,
