@@ -1,0 +1,19 @@
+kibala - kibana bacula backup information visualization
+=======================================================
+
+~~~ Introduction
+This projects supplies a tool set to visualize information of bacula backups
+using the tool kibana.
+Information of the bacula database are imported into an elasticsearch
+cluster/instance and returned by kibana to the client.
+
+~~~ Installation
+# Setup elasticsearch instance
+# Setup kibana instance with your favorite webserver
+# Run the script: kibala-init.sh
+
+~~~ Usage
+# Run the script: kibala-import-bacula-jobs.sh
+# Open kibana instance
+# Import kibala dashboard
+# Query and filter information of your backups
