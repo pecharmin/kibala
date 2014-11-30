@@ -43,3 +43,4 @@ Usage
 TODO
 ----
 * Import volume, pool, media information
+* Check job volume size calculation based on volume status
