@@ -5,7 +5,7 @@
       "list": {
         "0": {
           "id": 0,
-          "color": "#7EB26D",
+          "color": "#CCA300",
           "alias": "",
           "pin": false,
           "type": "lucene",
@@ -14,7 +14,7 @@
         },
         "1": {
           "id": 1,
-          "color": "#EAB839",
+          "color": "#1F78C1",
           "alias": "",
           "pin": false,
           "type": "lucene",
@@ -23,7 +23,7 @@
         },
         "2": {
           "id": 2,
-          "color": "#E24D42",
+          "color": "#508642",
           "alias": "",
           "pin": false,
           "type": "lucene",
@@ -32,7 +32,7 @@
         },
         "3": {
           "id": 3,
-          "color": "#EF843C",
+          "color": "#BF1B00",
           "alias": "",
           "pin": false,
           "type": "lucene",
@@ -41,7 +41,7 @@
         },
         "4": {
           "id": 4,
-          "color": "#E24D42",
+          "color": "#70DBED",
           "alias": "",
           "pin": false,
           "type": "lucene",
