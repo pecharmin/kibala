@@ -337,7 +337,7 @@
           "display_breakdown": "no",
           "sort_field": "",
           "sort_reverse": false,
-          "label_name": "Current selection",
+          "label_name": "Query",
           "value_name": "Value",
           "spyable": true,
           "show": {
@@ -352,6 +352,44 @@
           },
           "title": "Total Job Size",
           "field": "JobBytes",
+          "unit": "Bytes"
+        },
+        {
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "stats",
+          "loadingEditor": false,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              2,
+              4
+            ]
+          },
+          "style": {
+            "font-size": "20pt"
+          },
+          "format": "number",
+          "mode": "total",
+          "display_breakdown": "no",
+          "sort_field": "",
+          "sort_reverse": false,
+          "label_name": "Current selection",
+          "value_name": "Value",
+          "spyable": true,
+          "show": {
+            "count": false,
+            "min": false,
+            "max": false,
+            "mean": false,
+            "std_deviation": false,
+            "sum_of_squares": false,
+            "total": false,
+            "variance": false
+          },
+          "title": "Total Media Size",
+          "field": "MediaVolBytes",
           "unit": "Bytes"
         },
         {
@@ -389,42 +427,6 @@
           },
           "title": "Total Files saved",
           "field": "JobFiles"
-        },
-        {
-          "error": false,
-          "span": 3,
-          "editable": true,
-          "type": "stats",
-          "loadingEditor": false,
-          "queries": {
-            "mode": "selected",
-            "ids": [
-              2
-            ]
-          },
-          "style": {
-            "font-size": "20pt"
-          },
-          "format": "number",
-          "mode": "count",
-          "display_breakdown": "no",
-          "sort_field": "",
-          "sort_reverse": false,
-          "label_name": "Query",
-          "value_name": "Value",
-          "spyable": true,
-          "show": {
-            "count": false,
-            "min": false,
-            "max": false,
-            "mean": false,
-            "std_deviation": false,
-            "sum_of_squares": false,
-            "total": false,
-            "variance": false
-          },
-          "title": "Test",
-          "field": "JobId"
         },
         {
           "error": false,
@@ -555,7 +557,7 @@
           "type": "table",
           "loadingEditor": false,
           "size": 10,
-          "pages": 200,
+          "pages": 50,
           "offset": 0,
           "sort": [
             "JobStartTime",
@@ -594,6 +596,54 @@
           },
           "normTimes": true,
           "title": "Job Execution History"
+        },
+        {
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "table",
+          "loadingEditor": false,
+          "size": 10,
+          "pages": 50,
+          "offset": 20,
+          "sort": [
+            "@timestamp",
+            "desc"
+          ],
+          "overflow": "height",
+          "fields": [
+            "PoolName",
+            "ClientName",
+            "JobName",
+            "MediaVolBytes",
+            "MediaVolStatus",
+            "VolRetention"
+          ],
+          "highlight": [],
+          "sortable": true,
+          "header": true,
+          "paging": true,
+          "field_list": false,
+          "all_fields": false,
+          "trimFactor": 300,
+          "localTime": false,
+          "timeField": "@timestamp",
+          "spyable": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "style": {
+            "font-size": "9pt"
+          },
+          "normTimes": true,
+          "title": "Volume Medias"
         }
       ],
       "notice": false
