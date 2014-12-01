@@ -93,7 +93,7 @@
   },
   "rows": [
     {
-      "title": "~~~ BACKUP CONFIGURATION ~~~",
+      "title": "~~~ Backup Status ~~~",
       "height": "300px",
       "editable": true,
       "collapse": false,
@@ -108,7 +108,7 @@
           "mode": "markdown",
           "content": "",
           "style": {},
-          "title": "~~~ Backup Configuration ~~~"
+          "title": "~~~ Backup Status ~~~"
         },
         {
           "error": false,
@@ -264,7 +264,7 @@
       "notice": false
     },
     {
-      "title": "~~~ Backup Status ~~~",
+      "title": "~~~ Backup History ~~~",
       "height": "250px",
       "editable": true,
       "collapse": false,
@@ -279,7 +279,7 @@
           "mode": "markdown",
           "content": "",
           "style": {},
-          "title": "~~~ Backup Status ~~~"
+          "title": "~~~ Backup History ~~~"
         },
         {
           "error": false,
@@ -725,7 +725,7 @@
   "pulldowns": [
     {
       "type": "query",
-      "collapse": false,
+      "collapse": true,
       "notice": false,
       "query": "*",
       "pinned": true,
@@ -758,12 +758,7 @@
       "notice": false,
       "status": "Stable",
       "time_options": [
-        "5m",
-        "15m",
-        "1h",
-        "6h",
-        "12h",
-        "24h",
+        "1d",
         "2d",
         "5d",
         "7d",
@@ -774,12 +769,12 @@
         "90d"
       ],
       "refresh_intervals": [
-        "15m"
+        "60m"
       ],
       "timefield": "@timestamp",
       "enable": true,
       "now": true,
-      "filter_id": 4
+      "filter_id": 6
     }
   ],
   "refresh": false
