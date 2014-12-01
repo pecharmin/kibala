@@ -14,7 +14,11 @@ SET SESSION group_concat_max_len = 1000000;
 
 select concat(
 	'{ "index": { "_index": "$ES_INDEX", "_type": "Media", "_id": ', m.MediaId, ' } }\n',
-	'{ "@timestamp": "',		date_format(m.LabelDate, '%Y-%m-%dT%H:%i:%s'), '"',
+	'{ "@timestamp": ',		if(	STRCMP(	date_format(m.LabelDate, '%Y-%m-%dT%H:%i:%s'),
+							'0000-00-00T00:00:00'),
+						concat('"', date_format(m.LabelDate, '%Y-%m-%dT%H:%i:%s'), '"'),
+						'null'
+					),
 	', "MediaId": ',		m.MediaId,
 	', "VolumeName": "',		m.VolumeName, '"',
 	', "MediaTypeId": ',		m.MediaTypeId,
