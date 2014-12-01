@@ -490,7 +490,7 @@
           "editable": true,
           "type": "terms",
           "loadingEditor": false,
-          "field": "MediaVolStatus",
+          "field": "VolStatus",
           "exclude": [],
           "missing": false,
           "other": false,
@@ -515,7 +515,7 @@
           "tmode": "terms",
           "tstat": "total",
           "valuefield": "",
-          "title": "Volume Status"
+          "title": "Media Status"
         }
       ],
       "notice": false
