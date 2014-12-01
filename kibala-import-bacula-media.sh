@@ -12,7 +12,7 @@ mysql	--silent --raw \
 	$BACULA_DB_SCHEMA >/tmp/kibala-spool <<EOF
 select concat(
 	'{ "index": { "_index": "$ES_INDEX", "_type": "Media", "_id": ', m.MediaId, ' } }\n',
-	'{ "@timestamp": "',		date_format(m.LastWritten, '%Y-%m-%dT%H:%i:%s'), '"',
+	'{ "@timestamp": "',		date_format(m.LabelDate, '%Y-%m-%dT%H:%i:%s'), '"',
 	', "MediaId": ',		m.MediaId,
 	', "MediaVolumeName": "',	m.VolumeName, '"',
 	', "MediaTypeId": ',		m.MediaTypeId,

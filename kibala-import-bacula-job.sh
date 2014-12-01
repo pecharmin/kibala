@@ -12,7 +12,8 @@ mysql	--silent --raw \
 	$BACULA_DB_SCHEMA >/tmp/kibala-spool <<EOF
 select distinct concat(
 	'{ "index": { "_index": "$ES_INDEX", "_type": "Job", "_id": "', j.Name , '" } }\n',
-	'{ "JobName": "',		j.Name, '"',
+	'{ "@timestamp": "', 		date_format(now(), '%Y-%m-%dT%H:%i:%s'), '"',
+	', "JobName": "',		j.Name, '"',
 	', "JobType": "',		j.Type, '"',
 	', "JobTypeName": "',		case j.Type
 						when 'B' then 'Backup'

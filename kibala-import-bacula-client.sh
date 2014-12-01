@@ -12,7 +12,8 @@ mysql	--silent --raw \
 	$BACULA_DB_SCHEMA >/tmp/kibala-spool <<EOF
 select concat(
 	'{ "index": { "_index": "$ES_INDEX", "_type": "Client", "_id": ', c.ClientId, ' } }\n',
-	'{ "ClientId": ',		c.ClientId,
+	'{ "@timestamp": "', 		date_format(now(), '%Y-%m-%dT%H:%i:%s'), '"',
+	', "ClientId": ',		c.ClientId,
 	', "ClientName": "',		c.Name, '"',
 	', "ClientUname": "',		c.Uname, '"',
 	', "ClientAutoPrune": ',	c.AutoPrune,
