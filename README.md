@@ -28,8 +28,10 @@ Requirements
 Installation
 ------------
 1. Create an installation path
-```mkdir /opt/kibala-suite
-cd /opt/kibala-suite```
+```
+    mkdir /opt/kibala-suite
+    cd /opt/kibala-suite
+```
 1. Setup elasticsearch instance
 ```wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.6.tar.gz
 tar -xzf elasticsearch-1.3.6.tar.gz
