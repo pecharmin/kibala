@@ -769,12 +769,12 @@
         "90d"
       ],
       "refresh_intervals": [
-        "60m"
+        "15m"
       ],
       "timefield": "@timestamp",
       "enable": true,
       "now": true,
-      "filter_id": 6
+      "filter_id": 4
     }
   ],
   "refresh": false
