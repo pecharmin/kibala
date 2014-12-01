@@ -80,11 +80,6 @@ select concat(
 	', "JobSchedTime": "',		date_format(j.SchedTime, '%Y-%m-%dT%H:%i:%s'), '"',
 	', "JobStartTime": "',		date_format(j.StartTime, '%Y-%m-%dT%H:%i:%s'), '"',
 	', "JobEndTime": "',		date_format(j.EndTime, '%Y-%m-%dT%H:%i:%s'), '"',
-	', "JobRealEndTime": ',		if( date_format(j.RealEndTime, '%Y-%m-%dT%H:%i:%s')
-					    = "0000-00-00 00:00:00",
-					      concat('"', date_format(j.RealEndTime, '%Y-%m-%dT%H:%i:%s'), '"'),
-					      '[]'
-					),
 	', "JobFiles": ',		j.JobFiles,
 	', "JobBytes": ',		j.JobBytes,
 	', "JobReadBytes": ',		j.ReadBytes,
@@ -93,17 +88,13 @@ select concat(
 	', "JobPriorJobId": ',		j.PriorJobId,
 	', "ClientId": ',		c.ClientId,
 	', "ClientName": "',		c.Name, '"',
-	', "ClientUname": "',		c.Uname, '"',
-	', "ClientAutoPrune": ',	c.AutoPrune,
-	', "ClientFileRetention": ',	c.FileRetention,
-	', "ClientJobRetention": ',	c.JobRetention,
 	', "FileSetId": ',		ifnull(f.FileSetId, 'null'),
 	', "FileSet": "',		ifnull(f.FileSet, ''), '"',
 	', "PoolId": ',			ifnull(p.PoolId, 'null'),
 	', "PoolName": "',		ifnull(p.Name, ''), '"',
-	', "MediaVolumeName": "',	ifnull(m.VolumeName, ''), '"',
+	', "VolumeName": "',		ifnull(m.VolumeName, ''), '"',
 	', "MediaType": "',		ifnull(m.MediaType, ''), '"',
-	', "MediaVolStatus": "',	ifnull(m.VolStatus, ''), '"',
+	', "VolStatus": "',		ifnull(m.VolStatus, ''), '"',
 	' }'
 ) output
 from 	Job j
