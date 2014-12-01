@@ -21,21 +21,21 @@ select concat(
 	', "AutoPrune": ',		p.AutoPrune,
 	', "Recycle": ',		p.Recycle,
 	', "Enabled": ',		p.Enabled,
-	', "ClientName": "',		ifnull( ( select group_concat(	DISTINCT c.Name
-									order by c.Name separator ' ')
+	', "ClientName": [ ',		ifnull( ( select group_concat(	DISTINCT concat('"', c.Name, '"')
+									order by c.Name separator ', ')
 						  from Job j
 						  left join Client c on j.ClientId = c.ClientId
 						  where j.PoolId = p.PoolId
 						),
 						''
-					), '"',
-	', "JobName": "',		ifnull( ( select group_concat( 	DISTINCT j.Name
-									order by j.Name separator ' ')
+					), ' ]',
+	', "JobName": [ ',		ifnull( ( select group_concat( 	DISTINCT concat('"', j.Name, '"')
+									order by j.Name separator ', ')
 						  from Job j
 						  where j.PoolId = p.PoolId
 						),
 						''
-					), '"',
+					), ' ]',
 	' }'
 ) output
 from 	Pool p
