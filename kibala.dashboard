@@ -623,34 +623,85 @@
           "error": false,
           "span": 3,
           "editable": true,
-          "type": "terms",
+          "type": "column",
           "loadingEditor": false,
-          "field": "ClientName",
-          "exclude": [],
-          "missing": false,
-          "other": false,
-          "size": 20,
-          "order": "total",
-          "style": {
-            "font-size": "10pt"
-          },
-          "donut": true,
-          "tilt": false,
-          "labels": false,
-          "arrangement": "horizontal",
-          "chart": "pie",
-          "counter_pos": "below",
-          "spyable": false,
-          "queries": {
-            "mode": "selected",
-            "ids": [
-              2
-            ]
-          },
-          "tmode": "terms_stats",
-          "tstat": "total",
-          "valuefield": "JobBytes",
-          "title": "Job Bytes per Client (TOP20)"
+          "panels": [
+            {
+              "loading": false,
+              "error": false,
+              "sizeable": false,
+              "draggable": false,
+              "removable": false,
+              "span": 10,
+              "height": "250px",
+              "editable": true,
+              "type": "terms",
+              "tmode": "terms_stats",
+              "tstat": "total",
+              "field": "ClientName",
+              "valuefield": "JobBytes",
+              "size": 10,
+              "order": "total",
+              "chart": "pie",
+              "counter_pos": "below",
+              "donut": true,
+              "exclude": [],
+              "missing": false,
+              "other": false,
+              "style": {
+                "font-size": "10pt"
+              },
+              "tilt": false,
+              "labels": false,
+              "arrangement": "horizontal",
+              "spyable": false,
+              "queries": {
+                "mode": "selected",
+                "ids": [
+                  2
+                ]
+              },
+              "title": "Job Bytes per Client (TOP15)"
+            },
+            {
+              "loading": false,
+              "error": false,
+              "sizeable": false,
+              "draggable": false,
+              "removable": false,
+              "span": 10,
+              "height": "200px",
+              "editable": true,
+              "type": "terms",
+              "tmode": "terms_stats",
+              "tstat": "total",
+              "field": "Job",
+              "valuefield": "JobBytes",
+              "size": 10,
+              "order": "total",
+              "chart": "pie",
+              "counter_pos": "none",
+              "donut": true,
+              "exclude": [],
+              "missing": false,
+              "other": false,
+              "style": {
+                "font-size": "10pt"
+              },
+              "tilt": false,
+              "labels": false,
+              "arrangement": "horizontal",
+              "spyable": false,
+              "queries": {
+                "mode": "selected",
+                "ids": [
+                  2
+                ]
+              },
+              "title": "Bytes per Jobs (TOP10)"
+            }
+          ],
+          "title": "Job information"
         },
         {
           "error": false,
