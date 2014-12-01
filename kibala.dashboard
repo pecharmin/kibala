@@ -574,7 +574,7 @@
         },
         {
           "error": false,
-          "span": 12,
+          "span": 9,
           "editable": true,
           "type": "table",
           "loadingEditor": false,
@@ -618,6 +618,39 @@
           },
           "normTimes": true,
           "title": "Job Execution History"
+        },
+        {
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "ClientName",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 20,
+          "order": "total",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": true,
+          "tilt": false,
+          "labels": false,
+          "arrangement": "horizontal",
+          "chart": "pie",
+          "counter_pos": "below",
+          "spyable": false,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              2
+            ]
+          },
+          "tmode": "terms_stats",
+          "tstat": "total",
+          "valuefield": "JobBytes",
+          "title": "Job Bytes per Client (TOP20)"
         },
         {
           "error": false,
