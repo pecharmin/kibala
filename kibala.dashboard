@@ -758,7 +758,7 @@
         "90d"
       ],
       "refresh_intervals": [
-        "15m"
+        "60m"
       ],
       "timefield": "@timestamp",
       "enable": true,
