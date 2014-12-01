@@ -352,7 +352,6 @@
           "queries": {
             "mode": "selected",
             "ids": [
-              2,
               4
             ]
           },
@@ -366,7 +365,7 @@
           "sort_reverse": false,
           "label_name": "Current selection",
           "value_name": "Value",
-          "spyable": true,
+          "spyable": false,
           "show": {
             "count": false,
             "min": false,
@@ -378,7 +377,7 @@
             "variance": false
           },
           "title": "Total Media Size",
-          "field": "MediaVolBytes",
+          "field": "VolBytes",
           "unit": "Bytes"
         },
         {
