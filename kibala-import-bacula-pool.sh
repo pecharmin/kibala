@@ -10,6 +10,8 @@ mysql	--silent --raw \
 	-h$BACULA_DB_HOST \
 	-u$BACULA_DB_USERNAME \
 	$BACULA_DB_SCHEMA >/tmp/kibala-spool <<EOF
+SET SESSION group_concat_max_len = 1000000;
+
 select concat(
 	'{ "index": { "_index": "$ES_INDEX", "_type": "Pool", "_id": ', p.PoolId, ' } }\n',
 	'{ "@timestamp": "', 		date_format(now(), '%Y-%m-%dT%H:%i:%s'), '"',
