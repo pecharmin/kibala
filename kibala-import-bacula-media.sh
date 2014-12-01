@@ -10,39 +10,70 @@ mysql	--silent --raw \
 	-h$BACULA_DB_HOST \
 	-u$BACULA_DB_USERNAME \
 	$BACULA_DB_SCHEMA >/tmp/kibala-spool <<EOF
+SET SESSION group_concat_max_len = 1000000;
+
 select concat(
 	'{ "index": { "_index": "$ES_INDEX", "_type": "Media", "_id": ', m.MediaId, ' } }\n',
 	'{ "@timestamp": "',		date_format(m.LabelDate, '%Y-%m-%dT%H:%i:%s'), '"',
 	', "MediaId": ',		m.MediaId,
-	', "MediaVolumeName": "',	m.VolumeName, '"',
+	', "VolumeName": "',		m.VolumeName, '"',
 	', "MediaTypeId": ',		m.MediaTypeId,
 	', "MediaType": "',		m.MediaType, '"',
-	', "MediaVolJobs": ', 		m.VolJobs,
-	', "MediaVolFiles": ',	 	m.VolFiles,
-	', "MediaVolBlocks": ', 	m.VolBlocks,
-	', "MediaVolMounts": ', 	m.VolMounts,
-	', "MediaVolBytes": ',	 	m.VolBytes,
-	', "MediaVolParts": ',	 	m.VolParts,
-	', "MediaVolErrors": ', 	m.VolErrors,
-	', "MediaVolWrites": ', 	m.VolWrites,
-	', "MediaVolCapacityBytes": ', 	m.VolCapacityBytes,
-	', "MediaVolStatus": "',	m.VolStatus, '"',
+	', "VolJobs": ', 		m.VolJobs,
+	', "VolFiles": ',	 	m.VolFiles,
+	', "VolBlocks": ', 		m.VolBlocks,
+	', "VolMounts": ', 		m.VolMounts,
+	', "VolBytes": ',	 	m.VolBytes,
+	', "VolParts": ',	 	m.VolParts,
+	', "VolErrors": ', 		m.VolErrors,
+	', "VolWrites": ', 		m.VolWrites,
+	', "VolCapacityBytes": ', 	m.VolCapacityBytes,
+	', "VolStatus": "',		m.VolStatus, '"',
 	', "VolRetention": ', 		m.VolRetention,
 	', "VolUseDuration": ',		m.VolUseDuration,
-	', "MediaMaxVolJobs": ',	m.MaxVolJobs,
-	', "MediaMaxVolFiles": ',	m.MaxVolFiles,
-	', "MediaMaxVolBytes": ',	m.MaxVolBytes,
-	', "MediaEnabled": ', 		m.Enabled,
-	', "MediaRecycle": ', 		m.Recycle,
-	', "MediaComment": "', 		ifnull(m.Comment, ''), '"',
-	', "MediaEnabled": ', 		m.Enabled,
+	', "MaxVolJobs": ',		m.MaxVolJobs,
+	', "MaxVolFiles": ',		m.MaxVolFiles,
+	', "MaxVolBytes": ',		m.MaxVolBytes,
+	', "Enabled": ', 		m.Enabled,
+	', "Recycle": ', 		m.Recycle,
+	', "Comment": "', 		ifnull(m.Comment, ''), '"',
 	', "PoolId": ',			m.PoolId,
 	', "PoolName": "',		p.Name, '"',
 	', "JobMediaId": ',		ifnull(jm.JobMediaId, 'null'),
-	', "JobId": ',			ifnull(jm.JobId, 'null'),
-	', "JobName": "',		ifnull(j.Name, ''), '"',
-	', "ClientId": ',		ifnull(c.ClientId, 'null'),
-	', "ClientName": "',		ifnull(c.Name, ''), '"',
+	', "JobId": [ ',		ifnull( ( select group_concat(  DISTINCT j.JobId
+									order by j.JobId separator ', ')
+						  from Job j
+						  left join JobMedia jm on jm.JobId = j.JobId
+						  where jm.JobMediaId = m.MediaId
+						),
+						''
+					), ' ]',
+	', "JobName": [ ',		ifnull( ( select group_concat(  DISTINCT concat('"', j.Name, '"')
+									order by j.Name separator ', ')
+						  from Job j
+						  left join JobMedia jm on jm.JobId = j.JobId
+						  where jm.JobMediaId = m.MediaId
+						),
+						''
+					), ' ]',
+	', "ClientId": [ ',		ifnull( ( select group_concat(  DISTINCT c.ClientId
+									order by c.ClientId separator ', ')
+						  from Client c
+						  left join Job j on c.ClientId = j.ClientId
+						  left join JobMedia l_jm on l_jm.JobId = j.JobId
+						  where l_jm.JobMediaId = jm.JobMediaId
+						),
+						''
+					), ' ]',
+	', "ClientName": [ ',		ifnull( ( select group_concat(  DISTINCT concat('"', c.Name, '"')
+									order by c.Name separator ', ')
+						  from Client c
+						  left join Job j on c.ClientId = j.ClientId
+						  left join JobMedia l_jm on l_jm.JobId = j.JobId
+						  where l_jm.JobMediaId = jm.JobMediaId
+						),
+						''
+					), ' ]',
 	' }'
 ) output
 from 	Media m
@@ -52,6 +83,7 @@ from 	Media m
 	left join Client c on j.ClientId = c.ClientId
 EOF
 
-curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-spool && rm /tmp/kibala-spool
+curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-spool | format_es_response
+rm /tmp/kibala-spool
 
 echo
