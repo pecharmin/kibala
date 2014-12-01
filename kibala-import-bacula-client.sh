@@ -19,6 +19,13 @@ select concat(
 	', "ClientAutoPrune": ',	c.AutoPrune,
 	', "ClientFileRetention": ',	c.FileRetention,
 	', "ClientJobRetention": ',	c.JobRetention,
+	', "JobName": [ ',		ifnull( ( select group_concat(  DISTINCT concat('"', j.Name, '"')
+									order by j.Name separator ', ')
+						  from Job j
+						  where j.ClientId = c.ClientId
+						),
+						''
+					), ' ]',
 	' }'
 ) output
 from 	Client c;
