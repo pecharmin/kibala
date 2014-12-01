@@ -1,5 +1,5 @@
 #!/bin/bash
-# kibala-setup-index.sh
+# kibala-create-index.sh
 # Initialize elasticsearch instance for kibala index
 
 # Load configuration
