@@ -43,6 +43,7 @@ select concat(
 from 	Pool p
 EOF
 
-curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-spool && rm /tmp/kibala-spool
+curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-spool | format_es_response
+rm /tmp/kibala-spool
 
 echo

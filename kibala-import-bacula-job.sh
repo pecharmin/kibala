@@ -55,6 +55,7 @@ from 	Job j
 	left join Client c on j.ClientId = c.ClientId;
 EOF
 
-curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-spool && rm /tmp/kibala-spool
+curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-spool | format_es_response
+rm /tmp/kibala-spool
 
 echo
