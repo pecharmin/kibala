@@ -16,6 +16,7 @@ select concat(
 	'{ "index": { "_index": "$ES_INDEX", "_type": "JobHisto", "_id": ', j.JobId, ' } }\n',
 	'{ "@timestamp": "',		date_format(j.SchedTime, '%Y-%m-%dT%H:%i:%s'), '"',
 	', "JobId": ',			j.JobId,
+	', "Job": "',			j.Job, '"',
 	', "JobName": "',		j.Name, '"',
 	', "JobType": "',		j.Type, '"',
 	', "JobTypeName": "',		case j.Type
