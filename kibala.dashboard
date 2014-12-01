@@ -248,6 +248,39 @@
           "tstat": "total",
           "valuefield": "",
           "title": "Job Types"
+        },
+        {
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "VolumeName",
+          "exclude": [],
+          "missing": false,
+          "other": true,
+          "size": 80,
+          "order": "total",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": true,
+          "tilt": false,
+          "labels": false,
+          "arrangement": "horizontal",
+          "chart": "bar",
+          "counter_pos": "none",
+          "spyable": false,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              4
+            ]
+          },
+          "tmode": "terms_stats",
+          "tstat": "total",
+          "valuefield": "VolBytes",
+          "title": "Media Volumes"
         }
       ],
       "notice": false
