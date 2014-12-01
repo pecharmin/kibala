@@ -11,6 +11,35 @@ curl -XPUT $ES_URL/$ES_INDEX -d "{
 			\"number_of_shards\" : ${ELASTICSEARCH_number_of_shards:-3},
 			\"number_of_replicas\" : ${ELASTICSEARCH_number_of_replicas:-1}
 		}
+	},
+	\"mappings\": {
+		\"Client\": {
+			\"properties\": {
+				\"ClientName\": {
+					\"type\": \"string\",
+					\"index\": \"not_analyzed\"
+				},
+				\"ClientUname\": {
+					\"type\": \"string\",
+					\"index\": \"not_analyzed\"
+				},
+				\"JobName\": {
+					\"type\": \"string\",
+					\"index\": \"not_analyzed\"
+				}
+			}
+		},
+		\"Media\": {
+			\"properties\": {
+				\"VolumeName\": {
+					\"type\": \"string\",
+					\"index\": \"not_analyzed\"
+				},
+				\"VolBytes\": {
+					\"type\": \"byte\"
+				}
+			}
+		}
 	}
 }"
 
