@@ -5,7 +5,6 @@
 # Load configuration
 source $(dirname $0)/kibala.conf
 
-curl -XDELETE $ES_URL/$ES_INDEX
 curl -XPUT $ES_URL/$ES_INDEX -d '{
 	"settings" : {
 		"index" : {
