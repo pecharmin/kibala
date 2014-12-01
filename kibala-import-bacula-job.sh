@@ -2,6 +2,8 @@
 # kibala-import-bacula-job.sh
 # Dump job definitions from Bacula database and import into ElasticSearch for kibala visualization
 
+echo "Indexing job definitions..."
+
 # Load configuration
 source $(dirname $0)/kibala.conf
 

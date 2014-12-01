@@ -2,6 +2,8 @@
 # kibala-import-bacula-jobhisto.sh
 # Dump job history from Bacula database and import into ElasticSearch for kibala visualization
 
+echo "Indexing executed/planned jobs..."
+
 # Load configuration
 source $(dirname $0)/kibala.conf
 

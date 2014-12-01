@@ -2,6 +2,8 @@
 # kibala-import-bacula-media.sh
 # Dump medias from Bacula database and import into ElasticSearch for kibala visualization
 
+echo "Indexing medias..."
+
 # Load configuration
 source $(dirname $0)/kibala.conf
 

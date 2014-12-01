@@ -2,6 +2,8 @@
 # kibala-import-bacula-client.sh
 # Dump clients from Bacula database and import into ElasticSearch for kibala visualization
 
+echo "Indexing file daemons/clients..."
+
 # Load configuration
 source $(dirname $0)/kibala.conf
 
