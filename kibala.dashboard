@@ -145,7 +145,7 @@
           "type": "table",
           "loadingEditor": false,
           "size": 25,
-          "pages": 40,
+          "pages": 20,
           "offset": 0,
           "sort": [
             "_score",
@@ -156,19 +156,19 @@
             "ClientName"
           ],
           "highlight": [],
-          "sortable": false,
-          "header": false,
+          "sortable": true,
+          "header": true,
           "paging": true,
           "field_list": false,
           "all_fields": false,
-          "trimFactor": 120,
+          "trimFactor": 300,
           "localTime": false,
           "timeField": "@timestamp",
-          "spyable": true,
+          "spyable": false,
           "queries": {
             "mode": "selected",
             "ids": [
-              1
+              0
             ]
           },
           "style": {
@@ -606,7 +606,7 @@
           "trimFactor": 300,
           "localTime": false,
           "timeField": "@timestamp",
-          "spyable": true,
+          "spyable": false,
           "queries": {
             "mode": "selected",
             "ids": [
