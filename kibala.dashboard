@@ -516,6 +516,39 @@
           "tstat": "total",
           "valuefield": "",
           "title": "Media Status"
+        },
+        {
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "ClientName",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 20,
+          "order": "total",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": true,
+          "tilt": false,
+          "labels": true,
+          "arrangement": "horizontal",
+          "chart": "pie",
+          "counter_pos": "none",
+          "spyable": false,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              2
+            ]
+          },
+          "tmode": "terms_stats",
+          "tstat": "total",
+          "valuefield": "JobFiles",
+          "title": "Files per Client"
         }
       ],
       "notice": false
