@@ -91,16 +91,12 @@ cat >>~/.my.cnf <<EOF
 password=your_pass
 EOF```
 1. Run the init and import script for ElasticSearch index (includes substeps below):
-   * ./kibala-indexer.sh
-   ** The elasticsearch index can be resettey by:
-   *** `kibala-setup-index.sh`
-   ** The import scripts can be called manually if needed:
-   *** kibala-import-bacula-client.sh
-   *** kibala-import-bacula-job.sh
-   *** kibala-import-bacula-jobhisto.sh
+   * ./kibala-delete-index.sh # Delete complete index if already existing
+   * ./kibala-create-index.sh # Create elasticsearch index with defined mappings
+   * ./kibala-indexer.sh # Import all relevant information for bacula DB tables to ES types
 1. Open kibana instance
 1. Import kibala dashboard file into kibana: kibala.dashboard
-1. Query and filter information of your backups
+1. Filter information of your backups
 
 TODO
 ----
