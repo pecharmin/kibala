@@ -60,17 +60,17 @@ Installation
 
    * Apache2 Webserver:
 
-    ```
-    <VirtualHost *:80>
-        ServerName kibala.local
-        
-        DocumentRoot /opt/kibala-suite/kibana/
-        <Directory /opt/kibala-suite/kibana/>
-                Order allow,deny
-                allow from all
-        </Directory>
-    </VirtualHost>
-    ```
+        ```
+        <VirtualHost *:80>
+            ServerName kibala.local
+            
+            DocumentRoot /opt/kibala-suite/kibana/
+            <Directory /opt/kibala-suite/kibana/>
+                    Order allow,deny
+                    allow from all
+            </Directory>
+        </VirtualHost>
+        ```
 
 1. Start webserver and check kibana via webbrowser
 1. Get kibala
