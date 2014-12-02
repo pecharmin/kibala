@@ -83,7 +83,7 @@
   },
   "rows": [
     {
-      "title": "~~~ Backup Status ~~~",
+      "title": "~~~ Backup Configuration ~~~",
       "height": "300px",
       "editable": true,
       "collapse": false,
@@ -98,7 +98,7 @@
           "mode": "markdown",
           "content": "",
           "style": {},
-          "title": "~~~ Backup Status ~~~"
+          "title": "~~~ Backup Configuration ~~~"
         },
         {
           "error": false,
@@ -253,7 +253,7 @@
       "notice": false
     },
     {
-      "title": "~~~ Backup History ~~~",
+      "title": "~~~ Backup Status ~~~",
       "height": "250px",
       "editable": true,
       "collapse": false,
@@ -268,7 +268,7 @@
           "mode": "markdown",
           "content": "",
           "style": {},
-          "title": "~~~ Backup History ~~~"
+          "title": "~~~ Backup Status ~~~"
         },
         {
           "error": false,
