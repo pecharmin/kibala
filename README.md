@@ -35,31 +35,50 @@ Installation
     ```
 
 1. Setup elasticsearch instance
-```wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.6.tar.gz
-tar -xzf elasticsearch-1.3.6.tar.gz
-ln -s elasticsearch-1.3.6 elasticsearch```
-1. Start elasticsearch server
-`nohup ./elasticsearch/bin/elasticsearch &`
-1. Install kibana instance
-```wget https://download.elasticsearch.org/kibana/kibana/kibana-3.1.2.tar.gz
-tar -xzf kibana-3.1.2.tar.gz
-ln -s kibana-3.1.2 kibana```
-1. Configure your favorite webserver to deliver kibana directory
-   * Apache:
-     ```<VirtualHost *:80>
-        ServerName kibala.local
 
+    ```
+    wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.6.tar.gz
+    tar -xzf elasticsearch-1.3.6.tar.gz
+    ln -s elasticsearch-1.3.6 elasticsearch
+    ```
+
+1. Start elasticsearch server
+
+    ```
+    nohup ./elasticsearch/bin/elasticsearch &
+    ```
+
+1. Install kibana instance
+
+    ```
+    wget https://download.elasticsearch.org/kibana/kibana/kibana-3.1.2.tar.gz
+    tar -xzf kibana-3.1.2.tar.gz
+    ln -s kibana-3.1.2 kibana
+    ```
+
+1. Configure your favorite webserver to deliver kibana directory
+
+   * Apache2 Webserver:
+
+    ```
+    <VirtualHost *:80>
+        ServerName kibala.local
+        
         DocumentRoot /opt/kibala-suite/kibana/
         <Directory /opt/kibala-suite/kibana/>
                 Order allow,deny
                 allow from all
         </Directory>
-</VirtualHost>```
+    </VirtualHost>
+    ```
+
 1. Start webserver and check kibana via webbrowser
 1. Get kibala
-```git clone git@github.com:pecharmin/kibala.git
-cd kibala
-git checkout <version>```
+    ```
+    git clone git@github.com:pecharmin/kibala.git
+    cd kibala
+    git checkout <version>
+    ```
 
 Usage
 -----
