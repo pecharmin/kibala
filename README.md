@@ -74,6 +74,7 @@ Installation
 
 1. Start webserver and check kibana via webbrowser
 1. Get kibala
+
     ```
     git clone git@github.com:pecharmin/kibala.git
     cd kibala
@@ -84,12 +85,16 @@ Usage
 -----
 1. Configure the kibala toolset in kibala.conf
 1. Configure database password to bacula schema
-```touch ~/.my.cnf
-chmod 600 ~/.my.cnf
-cat >>~/.my.cnf <<EOF
-[client]
-password=your_pass
-EOF```
+
+    ```
+    touch ~/.my.cnf
+    chmod 600 ~/.my.cnf
+    cat >>~/.my.cnf <<EOF
+    [client]
+    password=your_pass
+    EOF
+    ```
+
 1. Run the init and import script for ElasticSearch index (includes substeps below):
    * ./kibala-delete-index.sh # Delete complete index if already existing
    * ./kibala-create-index.sh # Create elasticsearch index with defined mappings
