@@ -12,6 +12,8 @@ mysql	--silent --raw \
 	-h$BACULA_DB_HOST \
 	-u$BACULA_DB_USERNAME \
 	$BACULA_DB_SCHEMA >/tmp/kibala-spool <<EOF
+SET SESSION group_concat_max_len = 1000000;
+
 select concat(
 	'{ "index": { "_index": "$ES_INDEX", "_type": "JobHisto", "_id": ', j.JobId, ' } }\n',
 	'{ "@timestamp": "',		date_format(j.SchedTime, '%Y-%m-%dT%H:%i:%s'), '"',
@@ -98,6 +100,26 @@ select concat(
 	', "VolumeName": "',		ifnull(m.VolumeName, ''), '"',
 	', "MediaType": "',		ifnull(m.MediaType, ''), '"',
 	', "VolStatus": "',		ifnull(m.VolStatus, ''), '"',
+        ', "LogText": "',		ifnull( ( select
+						     replace(
+						       replace(
+							 replace(
+							   replace(
+							     replace(
+								group_concat(
+									concat(l.Time, ' ', l.LogText)
+						                        order by l.LogId separator ''
+								),
+								0x00, ''),
+							     '"', '\\\"'),
+							   '\n', '\\\n'),
+							 char(9), ''),
+						       char(13), '')
+						  from Log l
+						  where l.JobId = j.JobId
+						),
+						''
+					), '"',
 	' }'
 ) output
 from 	Job j

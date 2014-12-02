@@ -58,7 +58,12 @@ curl -XPUT $ES_URL/$ES_INDEX -d "{
 				\"VolumeName\": {
 					\"type\": \"string\",
 					\"index\": \"not_analyzed\"
+				},
+				\"LogText\": {
+					\"type\": \"string\",
+					\"index\": \"not_analyzed\"
 				}
+			}
 			}
 		}
 	}
