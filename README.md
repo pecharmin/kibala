@@ -12,9 +12,11 @@ cluster/instance and returned by kibana to the client.
 
 Examples
 --------
-See screenshots of
-* [Filtering](/doc/screenshots/kibala1.png)
-* [Information](/doc/screenshots/kibala2.png)
+See screenshots of bacula backup information:
+* [Configuration](/doc/screenshots/kibala-configuration.png)
+* [Status](/doc/screenshots/kibala-status.png)
+* [History](/doc/screenshots/kibala-history.png)
+* [Job details with logs](/doc/screenshots/kibala-job-details.png)
 
 Requirements
 ------------
