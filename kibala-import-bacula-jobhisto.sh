@@ -90,15 +90,21 @@ select concat(
 	', "JobReadBytes": ',		j.ReadBytes,
 	', "JobErrors": ',		j.JobErrors,
 	', "JobMissingFiles": ',	j.JobMissingFiles,
+
 	', "ClientId": ',		c.ClientId,
 	', "ClientName": "',		c.Name, '"',
+
 	', "FileSetId": ',		ifnull(f.FileSetId, 'null'),
 	', "FileSet": "',		ifnull(f.FileSet, ''), '"',
+
 	', "PoolId": ',			ifnull(p.PoolId, 'null'),
 	', "PoolName": "',		ifnull(p.Name, ''), '"',
+
 	', "VolumeName": "',		ifnull(m.VolumeName, ''), '"',
 	', "MediaType": "',		ifnull(m.MediaType, ''), '"',
 	', "VolStatus": "',		ifnull(m.VolStatus, ''), '"',
+	', "Comment": "',		ifnull(m.Comment, ''), '"',
+
         ', "LogText": "',		ifnull( ( select
 						     replace(
 						       replace(
