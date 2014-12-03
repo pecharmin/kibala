@@ -75,12 +75,12 @@ Installation
         ```
 
 1. Start webserver and check kibana via webbrowser
-1. Get kibala
+1. Get kibala and checkout stable version for Kibana 3
 
     ```
     git clone git@github.com:pecharmin/kibala.git
     cd kibala
-    git checkout <version>
+    git checkout kibana3
     ```
 
 Usage
