@@ -43,9 +43,12 @@ select concat(
 	', "Enabled": ', 		m.Enabled,
 	', "Recycle": ', 		m.Recycle,
 	', "Comment": "', 		ifnull(m.Comment, ''), '"',
+
 	', "PoolId": ',			m.PoolId,
 	', "PoolName": "',		p.Name, '"',
+
 	', "JobMediaId": ',		ifnull(jm.JobMediaId, 'null'),
+
 	', "JobId": [ ',		ifnull( ( select group_concat(  DISTINCT j.JobId
 									order by j.JobId separator ', ')
 						  from Job j
@@ -54,6 +57,16 @@ select concat(
 						),
 						''
 					), ' ]',
+
+	', "Job": [ ',			ifnull( ( select group_concat(  DISTINCT concat('"', j.Job, '"')
+									order by j.Job separator ', ')
+						  from Job j
+						  left join JobMedia jm on jm.JobId = j.JobId
+						  where jm.JobMediaId = m.MediaId
+						),
+						''
+					), ' ]',
+
 	', "JobName": [ ',		ifnull( ( select group_concat(  DISTINCT concat('"', j.Name, '"')
 									order by j.Name separator ', ')
 						  from Job j
@@ -62,6 +75,78 @@ select concat(
 						),
 						''
 					), ' ]',
+
+        ', "JobStatus": [ ',            ifnull( ( select group_concat( DISTINCT concat('"', j.JobStatus, '"')
+									order by j.Level separator ', ')
+
+						  from Job j
+						  left join JobMedia jm on jm.JobId = j.JobId
+						  where jm.JobMediaId = m.MediaId
+						),
+						''
+					), ' ]',
+
+        ', "JobStatusName": [ ',         ifnull( ( select group_concat(
+						DISTINCT concat('"',
+						case j.JobStatus
+                                                when 'A' then 'CanceledByUser'
+                                                when 'B' then 'Blocked'
+                                                when 'C' then 'CreatedNotYetRun'
+                                                when 'D' then 'VerifyDifferences'
+                                                when 'E' then 'Error'
+                                                when 'F' then 'WaitingOnFileDaemon'
+                                                when 'I' then 'Incomplete'
+                                                when 'L' then 'CommittingData'
+                                                when 'M' then 'WaitingForMount'
+                                                when 'R' then 'Running'
+                                                when 'S' then 'WaitingOnStorageDaemon'
+                                                when 'T' then 'Completed'
+                                                when 'W' then 'Warning'
+                                                when 'a' then 'StorageDaemonDespoolingAttributes'
+                                                when 'c' then 'WaitingForClientResource'
+                                                when 'd' then 'WaitingForMaximumJobs'
+                                                when 'f' then 'FatalError'
+                                                when 'i' then 'BatchInsertFileRecords'
+                                                when 'j' then 'WaitingforJobResource'
+                                                when 'l' then 'DespoolingData'
+                                                when 'm' then 'WaitingForNewMedia'
+                                                when 'p' then 'WaitingForFinishOfPriorisedJob'
+                                                when 'q' then 'QueuedWaitingForDevice'
+                                                when 's' then 'WaitingForStorageResource'
+                                                when 't' then 'WaitingForStartTime'
+                                        	end,
+                                        '"') separator ', ')
+						  from Job j
+						  left join JobMedia jm on jm.JobId = j.JobId
+						  where jm.JobMediaId = m.MediaId
+						),
+						''
+					), ' ]',
+
+	', "JobLevelName": [ ',		ifnull( ( select group_concat(
+								DISTINCT concat('"',
+								   case j.Level
+			                                                when 'F' then 'Full'
+			                                                when 'D' then 'Differential'
+			                                                when 'I' then 'Incremental'
+			                                                when 'S' then '?Since?'
+			                                                when 'C' then 'VerifyJobFromCatalog'
+			                                                when 'V' then 'VerifyDatabaseSchema'
+			                                                when 'O' then 'VerifyVolumeVsCatalog'
+			                                                when 'd' then 'VerifyDiskAttributesVsCatalog'
+			                                                when 'A' then 'VerifyDataOnVolume'
+			                                                when 'B' then 'Base'
+			                                                when ' ' then 'RestoreOrAdminCcommand'
+			                                                when 'f' then 'VirtualFull'
+			                                           end,
+								'"') separator ', ')
+						  from Job j
+						  left join JobMedia jm on jm.JobId = j.JobId
+						  where jm.JobMediaId = m.MediaId
+						),
+						'null'
+					), ' ]',
+
 	', "ClientId": [ ',		ifnull( ( select group_concat(  DISTINCT c.ClientId
 									order by c.ClientId separator ', ')
 						  from Client c
@@ -71,6 +156,7 @@ select concat(
 						),
 						''
 					), ' ]',
+
 	', "ClientName": [ ',		ifnull( ( select group_concat(  DISTINCT concat('"', c.Name, '"')
 									order by c.Name separator ', ')
 						  from Client c
