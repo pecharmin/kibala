@@ -61,7 +61,7 @@ curl -XPUT $ES_URL/$ES_INDEX -d "{
 				},
 				\"LogText\": {
 					\"type\": \"string\",
-					\"index\": \"not_analyzed\"
+					\"index\": \"no\"
 				}
 			}
 			}
