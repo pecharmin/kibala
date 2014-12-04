@@ -98,9 +98,9 @@ Usage
     ```
 
 1. Run the init and import script for ElasticSearch index (includes substeps below):
-   * ./kibala-delete-index.sh # Delete complete index if already existing
-   * ./kibala-create-index.sh # Create elasticsearch index with defined mappings
-   * ./kibala-indexer.sh # Import all relevant information for bacula DB tables to ES types
+   * ```./kibala-delete-index.sh # Delete complete index if already existing```
+   * ```./kibala-create-index.sh # Create elasticsearch index with defined mappings```
+   * ```./kibala-indexer.sh # Import all relevant information from bacula DB tables to ES types```
 1. Open kibana instance
 1. Import kibala dashboard file into kibana: kibala.dashboard
 1. Filter information of your backups
