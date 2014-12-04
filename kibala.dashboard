@@ -59,9 +59,9 @@
         },
         "1": {
           "type": "querystring",
-          "query": "JobLevel:f|d|i",
+          "query": "JobLevel:F OR JobLevel:D OR JobLevel:I",
           "mandate": "must",
-          "active": false,
+          "active": true,
           "alias": "",
           "id": 1
         },

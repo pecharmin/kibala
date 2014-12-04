@@ -28,6 +28,10 @@ curl -XPUT $ES_URL/$ES_INDEX -d "{
 					\"type\": \"string\",
 					\"index\": \"not_analyzed\"
 				},
+				\"JobLevel\": {
+					\"type\": \"string\",
+					\"index\": \"not_analyzed\"
+				},
 				\"ClientName\": {
 					\"type\": \"string\",
 					\"index\": \"not_analyzed\"
