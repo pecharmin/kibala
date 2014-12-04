@@ -72,12 +72,23 @@
           "active": false,
           "alias": "",
           "id": 2
+        },
+        "3": {
+          "type": "time",
+          "field": "@timestamp",
+          "from": "now-30d",
+          "to": "now",
+          "mandate": "must",
+          "active": true,
+          "alias": "",
+          "id": 3
         }
       },
       "ids": [
         0,
         1,
-        2
+        2,
+        3
       ]
     }
   },
@@ -102,84 +113,7 @@
         },
         {
           "error": false,
-          "span": 3,
-          "editable": true,
-          "group": [
-            "default"
-          ],
-          "type": "terms",
-          "queries": {
-            "mode": "all",
-            "ids": [
-              0,
-              2,
-              3,
-              4
-            ]
-          },
-          "field": "_type",
-          "exclude": [],
-          "missing": false,
-          "other": false,
-          "size": 100,
-          "order": "count",
-          "style": {
-            "font-size": "10pt"
-          },
-          "donut": true,
-          "tilt": false,
-          "labels": true,
-          "arrangement": "horizontal",
-          "chart": "pie",
-          "counter_pos": "below",
-          "title": "Resources",
-          "spyable": true,
-          "tmode": "terms",
-          "tstat": "total",
-          "valuefield": ""
-        },
-        {
-          "error": false,
-          "span": 3,
-          "editable": true,
-          "type": "table",
-          "loadingEditor": false,
-          "size": 25,
-          "pages": 20,
-          "offset": 0,
-          "sort": [
-            "_score",
-            "desc"
-          ],
-          "overflow": "height",
-          "fields": [
-            "ClientName"
-          ],
-          "highlight": [],
-          "sortable": true,
-          "header": true,
-          "paging": true,
-          "field_list": false,
-          "all_fields": false,
-          "trimFactor": 300,
-          "localTime": false,
-          "timeField": "@timestamp",
-          "spyable": false,
-          "queries": {
-            "mode": "selected",
-            "ids": [
-              0
-            ]
-          },
-          "style": {
-            "font-size": "9pt"
-          },
-          "normTimes": true,
-          "title": "Clients"
-        },
-        {
-          "error": false,
-          "span": 3,
+          "span": 9,
           "editable": true,
           "type": "table",
           "loadingEditor": false,
@@ -192,29 +126,30 @@
           ],
           "overflow": "height",
           "fields": [
-            "JobName"
+            "JobName",
+            "ClientName"
           ],
           "highlight": [],
           "sortable": true,
-          "header": false,
+          "header": true,
           "paging": true,
           "field_list": false,
           "all_fields": true,
           "trimFactor": 300,
           "localTime": false,
           "timeField": "@timestamp",
-          "spyable": true,
+          "spyable": false,
           "queries": {
             "mode": "selected",
             "ids": [
-              0
+              2
             ]
           },
           "style": {
             "font-size": "9pt"
           },
           "normTimes": true,
-          "title": "Jobs"
+          "title": "Clients and Jobs"
         },
         {
           "error": false,
@@ -236,12 +171,12 @@
           "labels": true,
           "arrangement": "horizontal",
           "chart": "pie",
-          "counter_pos": "below",
+          "counter_pos": "above",
           "spyable": true,
           "queries": {
             "mode": "selected",
             "ids": [
-              0
+              2
             ]
           },
           "tmode": "terms",
@@ -352,43 +287,6 @@
           "queries": {
             "mode": "selected",
             "ids": [
-              4
-            ]
-          },
-          "style": {
-            "font-size": "20pt"
-          },
-          "format": "number",
-          "mode": "total",
-          "display_breakdown": "no",
-          "sort_field": "",
-          "sort_reverse": false,
-          "label_name": "Current selection",
-          "value_name": "Value",
-          "spyable": false,
-          "show": {
-            "count": false,
-            "min": false,
-            "max": false,
-            "mean": false,
-            "std_deviation": false,
-            "sum_of_squares": false,
-            "total": false,
-            "variance": false
-          },
-          "title": "Total Media Size",
-          "field": "VolBytes",
-          "unit": "Bytes"
-        },
-        {
-          "error": false,
-          "span": 3,
-          "editable": true,
-          "type": "stats",
-          "loadingEditor": false,
-          "queries": {
-            "mode": "selected",
-            "ids": [
               2
             ]
           },
@@ -415,6 +313,43 @@
           },
           "title": "Total Files saved",
           "field": "JobFiles"
+        },
+        {
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "stats",
+          "loadingEditor": false,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              2
+            ]
+          },
+          "style": {
+            "font-size": "20pt"
+          },
+          "format": "number",
+          "mode": "total",
+          "display_breakdown": "no",
+          "sort_field": "",
+          "sort_reverse": false,
+          "label_name": "Current selection",
+          "value_name": "Value",
+          "spyable": false,
+          "show": {
+            "count": false,
+            "min": false,
+            "max": false,
+            "mean": false,
+            "std_deviation": false,
+            "sum_of_squares": false,
+            "total": false,
+            "variance": false
+          },
+          "title": "Total Media Blocks",
+          "field": "MediaBlocks",
+          "unit": ""
         },
         {
           "error": false,
@@ -490,39 +425,6 @@
           "editable": true,
           "type": "terms",
           "loadingEditor": false,
-          "field": "VolStatus",
-          "exclude": [],
-          "missing": false,
-          "other": false,
-          "size": 10000,
-          "order": "count",
-          "style": {
-            "font-size": "10pt"
-          },
-          "donut": true,
-          "tilt": false,
-          "labels": true,
-          "arrangement": "horizontal",
-          "chart": "pie",
-          "counter_pos": "below",
-          "spyable": true,
-          "queries": {
-            "mode": "selected",
-            "ids": [
-              4
-            ]
-          },
-          "tmode": "terms",
-          "tstat": "total",
-          "valuefield": "",
-          "title": "Media Status"
-        },
-        {
-          "error": false,
-          "span": 3,
-          "editable": true,
-          "type": "terms",
-          "loadingEditor": false,
           "field": "ClientName",
           "exclude": [],
           "missing": false,
@@ -549,6 +451,39 @@
           "tstat": "total",
           "valuefield": "JobFiles",
           "title": "Files per Client"
+        },
+        {
+          "error": false,
+          "span": 3,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "field": "FileSet",
+          "exclude": [],
+          "missing": false,
+          "other": false,
+          "size": 25,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": true,
+          "tilt": false,
+          "labels": false,
+          "arrangement": "horizontal",
+          "chart": "pie",
+          "counter_pos": "none",
+          "spyable": false,
+          "queries": {
+            "mode": "selected",
+            "ids": [
+              2
+            ]
+          },
+          "tmode": "terms",
+          "tstat": "total",
+          "valuefield": "",
+          "title": "FileSets TOP25"
         }
       ],
       "notice": false
@@ -651,7 +586,7 @@
                 "font-size": "10pt"
               },
               "tilt": false,
-              "labels": false,
+              "labels": true,
               "arrangement": "horizontal",
               "spyable": false,
               "queries": {
@@ -701,49 +636,6 @@
             }
           ],
           "title": "Job information"
-        },
-        {
-          "error": false,
-          "span": 12,
-          "editable": true,
-          "type": "table",
-          "loadingEditor": false,
-          "size": 10,
-          "pages": 50,
-          "offset": 0,
-          "sort": [
-            "@timestamp",
-            "desc"
-          ],
-          "overflow": "height",
-          "fields": [
-            "PoolName",
-            "ClientName",
-            "JobName",
-            "PoolType",
-            "VolRetention"
-          ],
-          "highlight": [],
-          "sortable": true,
-          "header": true,
-          "paging": true,
-          "field_list": false,
-          "all_fields": false,
-          "trimFactor": 300,
-          "localTime": false,
-          "timeField": "@timestamp",
-          "spyable": true,
-          "queries": {
-            "mode": "selected",
-            "ids": [
-              3
-            ]
-          },
-          "style": {
-            "font-size": "9pt"
-          },
-          "normTimes": true,
-          "title": "Volume Medias"
         }
       ],
       "notice": false
@@ -879,7 +771,7 @@
       "timefield": "@timestamp",
       "enable": true,
       "now": true,
-      "filter_id": 4
+      "filter_id": 3
     }
   ],
   "refresh": false
