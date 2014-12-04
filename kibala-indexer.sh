@@ -9,7 +9,4 @@ set -e
 export ES_INDEX_DATE=${ES_INDEX_DATE:-$1}
 
 # Index all nessassary types
-#$(dirname $0)/kibala-import-bacula-job.sh
-#$(dirname $0)/kibala-import-bacula-pool.sh
-#$(dirname $0)/kibala-import-bacula-media.sh
 $(dirname $0)/kibala-import-bacula-jobhisto.sh
