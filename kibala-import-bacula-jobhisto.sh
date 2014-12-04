@@ -97,17 +97,22 @@ select concat(
 	', "ClientName": "',		c.Name, '"',
 
 	', "FileSetId": ',		ifnull(f.FileSetId, 'null'),
-	', "FileSet": "',		ifnull(f.FileSet, ''), '"',
+	', "FileSet": ',		ifnull(concat('"', f.FileSet, '"'), 'null'),
 
 	', "PoolId": ',			ifnull(p.PoolId, 'null'),
-	', "PoolName": "',		ifnull(p.Name, ''), '"',
+	', "PoolName": ',		ifnull(concat('"', p.Name, '"'), 'null'),
 
-	', "VolumeName": "',		ifnull(m.VolumeName, ''), '"',
-	', "MediaType": "',		ifnull(m.MediaType, ''), '"',
-	', "VolStatus": "',		ifnull(m.VolStatus, ''), '"',
-	', "Comment": "',		ifnull(m.Comment, ''), '"',
+	', "JobMediaId": ',		ifnull(jm.JobMediaId, 'null'),
+	', "JobId": ',			ifnull(jm.JobId, 'null'),
+	', "VolumeName": ',		ifnull(concat('"', m.VolumeName, '"'), 'null'),
+	', "MediaType": ',		ifnull(concat('"', m.MediaType, '"'), 'null'),
+	', "VolStatus": ',		ifnull(concat('"', m.VolStatus, '"'), 'null'),
+	', "MediaComment": ',		ifnull(concat('"', m.Comment, '"'), 'null'),
 
-        ', "LogText": "',		ifnull( ( select
+	', "VolIndex": ',		ifnull(jm.VolIndex, 'null'),
+	', "MediaBlocks": ',		ifnull(jm.EndBlock - jm.StartBlock, 0),
+
+        ', "LogText": ',		ifnull( ( select concat('"',
 						     replace(
 						       replace(
 							 replace(
@@ -121,12 +126,12 @@ select concat(
 							     '"', '\\\"'),
 							   '\n', '\\\n'),
 							 char(9), ''),
-						       char(13), '')
+						       char(13), ''), '"')
 						  from Log l
 						  where l.JobId = j.JobId
 						),
-						''
-					), '"',
+						'null'
+					),
 	' }'
 ) output
 from 	Job j
