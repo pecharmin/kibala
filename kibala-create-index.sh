@@ -18,46 +18,6 @@ curl -XPUT $ES_URL/$ES_INDEX -d "{
 		}
 	},
 	\"mappings\": {
-		\"Client\": {
-			\"properties\": {
-				\"ClientName\": {
-					\"type\": \"string\",
-					\"index\": \"not_analyzed\"
-				},
-				\"ClientUname\": {
-					\"type\": \"string\",
-					\"index\": \"not_analyzed\"
-				},
-				\"JobName\": {
-					\"type\": \"string\",
-					\"index\": \"not_analyzed\"
-				}
-			}
-		},
-		\"Media\": {
-			\"properties\": {
-				\"Job\": {
-					\"type\": \"string\",
-					\"index\": \"not_analyzed\"
-				},
-				\"JobName\": {
-					\"type\": \"string\",
-					\"index\": \"not_analyzed\"
-				},
-				\"ClientName\": {
-					\"type\": \"string\",
-					\"index\": \"not_analyzed\"
-				},
-				\"PoolName\": {
-					\"type\": \"string\",
-					\"index\": \"not_analyzed\"
-				},
-				\"VolumeName\": {
-					\"type\": \"string\",
-					\"index\": \"not_analyzed\"
-				}
-			}
-		},
 		\"JobHisto\": {
 			\"properties\": {
 				\"Job\": {
@@ -77,6 +37,10 @@ curl -XPUT $ES_URL/$ES_INDEX -d "{
 					\"index\": \"not_analyzed\"
 				},
 				\"VolumeName\": {
+					\"type\": \"string\",
+					\"index\": \"not_analyzed\"
+				},
+				\"FileSet\": {
 					\"type\": \"string\",
 					\"index\": \"not_analyzed\"
 				},
