@@ -805,13 +805,13 @@
   ],
   "editable": true,
   "index": {
-    "interval": "none",
-    "pattern": "[logstash-]YYYY.MM.DD",
+    "interval": "day",
+    "pattern": "[kibala-]YYYY-MM-DD",
     "default": "kibala",
     "warm_fields": true
   },
   "style": "dark",
-  "failover": false,
+  "failover": true,
   "panel_hints": true,
   "loader": {
     "save_gist": false,

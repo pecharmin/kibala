@@ -2,8 +2,13 @@
 # kibala-create-index.sh
 # Initialize elasticsearch instance for kibala index
 
+# Set custom date to index
+ES_INDEX_DATE=${ES_INDEX_DATE:-$1}
+
 # Load configuration
 source $(dirname $0)/kibala.conf
+
+echo "Creating index '$ES_INDEX'..."
 
 curl -XPUT $ES_URL/$ES_INDEX -d "{
 	\"settings\" : {

@@ -8,6 +8,8 @@ echo "Indexing executed/planned jobs..."
 source $(dirname $0)/kibala.conf
 
 # Generate and insert documents with job infos into elasticsearch for kibala
+[ "$ES_INDEX_DATE" ] && WHERE_CONDITION="where j.SchedTime between '${ES_INDEX_DATE} 00:00:00' and '${ES_INDEX_DATE} 23:59:59'"
+
 mysql	--silent --raw \
 	-h$BACULA_DB_HOST \
 	-u$BACULA_DB_USERNAME \
@@ -134,6 +136,7 @@ from 	Job j
 	left join Media m on jm.MediaId = m.MediaId
 	left join FileSet f on j.FileSetId = f.FileSetId
 	left join Status s on j.JobStatus = s.JobStatus
+$WHERE_CONDITION
 order	by j.JobId desc
 EOF
 
