@@ -15,6 +15,7 @@ mysql	--silent --raw \
 	-u$BACULA_DB_USERNAME \
 	$BACULA_DB_SCHEMA >/tmp/kibala-spool <<EOF
 SET SESSION group_concat_max_len = 1000000;
+SET sql_mode = 'NO_UNSIGNED_SUBTRACTION';
 
 select concat(
 	'{ "index": { "_index": "$ES_INDEX", "_type": "JobHisto", "_id": ', j.JobId, ' } }\n',
