@@ -1,0 +1,37 @@
+<VirtualHost *:80>
+        ServerName kibala.local
+
+	RewriteEngine On
+	RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [L,R=301]
+</VirtualHost>
+
+Listen 443
+<VirtualHost *:443>
+        ServerName kibala.local
+
+	SSLEngine on
+	SSLCertificateFile    /etc/apache2/ssl/kibala.local.crt
+	SSLCertificateKeyFile /etc/apache2/ssl/kibala.local.key
+
+        DocumentRoot /opt/kibala-suite/kibana/
+        <Directory /opt/kibala-suite/kibana/>
+                Order allow,deny
+                allow from all
+        </Directory>
+
+	<Location /es/>
+		ProxyPass http://localhost:9200/
+		ProxyPassReverse http://localhost:9200/
+	</Location>
+
+	<Location />
+		AuthName "Kibala - Bacula visualization"
+		AuthType Basic
+		AuthUserFile /etc/apache2/htpasswd
+		Require valid-user
+
+		Order Allow,Deny
+		Allow from all
+		Satisfy All
+	</Location>
+</VirtualHost>

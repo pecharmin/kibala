@@ -58,21 +58,23 @@ Installation
     ln -s kibana-3.1.2 kibana
     ```
 
+1. Change kibana configuration kibana/config.js
+
+   * Using another elasticsearch instance:
+   
+   ```
+   elasticsearch: "http://elastic.host:9200",
+   ```
+
+   * Use local elasticsearch instance via HTTPS behind Apache webserver with webserver's HTTP basic authentication (see apache configuration below):
+
+   ```
+   elasticsearch: { server: "https://kibala.local/es", withCredentials: true },
+   ```
+
 1. Configure your favorite webserver to deliver kibana directory
 
-   * Apache2 Webserver:
-
-        ```
-        <VirtualHost *:80>
-            ServerName kibala.local
-            
-            DocumentRoot /opt/kibala-suite/kibana/
-            <Directory /opt/kibala-suite/kibana/>
-                    Order allow,deny
-                    allow from all
-            </Directory>
-        </VirtualHost>
-        ```
+   * For Apache2 webserver see [doc/configs/apache2-vhost.txt](/doc/configs/apache2-vhost.txt)
 
 1. Start webserver and check kibana via webbrowser
 1. Get kibala and checkout stable version for Kibana 3
