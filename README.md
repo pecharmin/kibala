@@ -109,6 +109,7 @@ Usage
 
 TODO
 ----
-* Import pools and medias
+* Fix "Total Media Blocks" in dashboard
 * Make LogText searchable
+* Import pools and medias
 * Integration into bacula to update elasticsearch index after backups
