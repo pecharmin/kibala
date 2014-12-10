@@ -10,7 +10,7 @@ source $(dirname $0)/kibala.conf
 
 echo "Creating index '$ES_INDEX'..."
 
-curl -XPUT $ES_URL/$ES_INDEX -d "{
+curl -s -XPUT $ES_URL/$ES_INDEX -d "{
 	\"settings\" : {
 		\"index\" : {
 			\"number_of_shards\" : ${ELASTICSEARCH_number_of_shards:-3},

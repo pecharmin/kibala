@@ -10,6 +10,6 @@ source $(dirname $0)/kibala.conf
 
 echo "Deleting index '$ES_INDEX'..."
 
-curl -XDELETE $ES_URL/$ES_INDEX
+curl -s -XDELETE $ES_URL/$ES_INDEX
 
 echo
