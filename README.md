@@ -109,4 +109,5 @@ Usage
 
 TODO
 ----
+* Make LogText searchable
 * Integration into bacula to update elasticsearch index after backups
