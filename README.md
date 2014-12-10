@@ -109,5 +109,6 @@ Usage
 
 TODO
 ----
+* Import pools and medias
 * Make LogText searchable
 * Integration into bacula to update elasticsearch index after backups
