@@ -3,15 +3,6 @@
   "services": {
     "query": {
       "list": {
-        "0": {
-          "id": 0,
-          "color": "#CCA300",
-          "alias": "",
-          "pin": false,
-          "type": "lucene",
-          "enable": true,
-          "query": "_type:Job"
-        },
         "2": {
           "id": 2,
           "color": "#508642",
@@ -20,31 +11,10 @@
           "type": "lucene",
           "enable": true,
           "query": "_type:JobHisto"
-        },
-        "3": {
-          "id": 3,
-          "color": "#BF1B00",
-          "alias": "",
-          "pin": false,
-          "type": "lucene",
-          "enable": true,
-          "query": "_type:Pool"
-        },
-        "4": {
-          "id": 4,
-          "color": "#70DBED",
-          "alias": "",
-          "pin": false,
-          "type": "lucene",
-          "enable": true,
-          "query": "_type:Media"
         }
       },
       "ids": [
-        0,
-        2,
-        3,
-        4
+        2
       ]
     },
     "filter": {
@@ -727,9 +697,9 @@
       "query": "*",
       "pinned": true,
       "history": [
+        "_type:JobHisto",
         "_type:Media",
         "_type:Pool",
-        "_type:JobHisto",
         "_type:Job",
         "_type:Client",
         "_type:clients",
