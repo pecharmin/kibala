@@ -53,7 +53,6 @@ curl -s -XPUT $ES_URL/$ES_INDEX -d "{
 					\"index\": \"no\"
 				}
 			}
-			}
 		}
 	}
 }"
