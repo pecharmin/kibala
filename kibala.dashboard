@@ -703,8 +703,8 @@
     "warm_fields": true
   },
   "style": "dark",
-  "failover": true,
-  "panel_hints": true,
+  "failover": false,
+  "panel_hints": false,
   "loader": {
     "save_gist": false,
     "save_elasticsearch": true,
