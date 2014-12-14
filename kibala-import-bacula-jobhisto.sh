@@ -113,9 +113,9 @@ select concat(
 	', "VolIndex": ',		ifnull(jm.VolIndex, 'null'),
 	', "MediaBlocks": ',		ifnull(jm.EndBlock - jm.StartBlock, 0),
 
-        ', "LogText": [ ',		ifnull( ( select
+        ', "LogText": "',		ifnull( ( select
 						group_concat(
-							concat('"', l.Time, ' ',
+							concat(l.Time, ' ',
 						          replace(
 							    replace(
 							      replace(
@@ -127,13 +127,13 @@ select concat(
 							      '\n', '\\\n'),
 							    char(9), ''),
 							  char(13), '')
-							, '"')
-						order by l.LogId separator ', ')
+							)
+						order by l.LogId separator '\\\\n')
 						from Log l
 						where l.JobId = j.JobId
 						),
 						''
-					), ' ]',
+					), '"',
 	', "Files": "',		ifnull( ( select
 							group_concat(
 								concat(pa.Path, fn.Name)
