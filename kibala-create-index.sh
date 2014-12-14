@@ -51,6 +51,10 @@ curl -s -XPUT $ES_URL/$ES_INDEX -d "{
 				\"LogText\": {
 					\"type\": \"string\",
 					\"index\": \"no\"
+				},
+				\"Files\": {
+					\"type\": \"string\",
+					\"index\": \"no\"
 				}
 			}
 		}
