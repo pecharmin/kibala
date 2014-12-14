@@ -453,7 +453,7 @@
           "tmode": "terms",
           "tstat": "total",
           "valuefield": "",
-          "title": "FileSets TOP25"
+          "title": "Used FileSets in Jobs TOP25"
         }
       ],
       "notice": false
