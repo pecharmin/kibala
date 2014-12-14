@@ -90,7 +90,9 @@ select concat(
 	', "JobEndTime": "',		date_format(j.EndTime, '%Y-%m-%dT%H:%i:%s'), '"',
 	', "JobFiles": ',		j.JobFiles,
 	', "JobBytes": ',		j.JobBytes,
+	', "JobMBytes": ',		round(j.JobBytes / 1024 / 1024),
 	', "JobReadBytes": ',		j.ReadBytes,
+	', "JobReadMBytes": ',		round(j.ReadBytes / 1024 / 1024),
 	', "JobErrors": ',		j.JobErrors,
 	', "JobMissingFiles": ',	j.JobMissingFiles,
 
