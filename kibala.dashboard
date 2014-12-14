@@ -233,7 +233,7 @@
           "sort_reverse": false,
           "label_name": "Query",
           "value_name": "Value",
-          "spyable": true,
+          "spyable": false,
           "show": {
             "count": false,
             "min": false,
@@ -245,8 +245,8 @@
             "variance": false
           },
           "title": "Total Job Size",
-          "field": "JobBytes",
-          "unit": "Bytes"
+          "field": "JobMBytes",
+          "unit": "MB"
         },
         {
           "error": false,
@@ -496,7 +496,7 @@
             "ClientName",
             "JobName",
             "JobLevelName",
-            "JobBytes",
+            "JobMBytes",
             "JobFiles",
             "JobStatusLong",
             "FileSet"
@@ -543,7 +543,7 @@
               "tmode": "terms_stats",
               "tstat": "total",
               "field": "ClientName",
-              "valuefield": "JobBytes",
+              "valuefield": "JobMBytes",
               "size": 10,
               "order": "total",
               "chart": "pie",
@@ -565,7 +565,7 @@
                   2
                 ]
               },
-              "title": "Job Bytes per Client (TOP15)"
+              "title": "Job Volume (MB) per Client (TOP15)"
             },
             {
               "loading": false,
@@ -580,7 +580,7 @@
               "tmode": "terms_stats",
               "tstat": "total",
               "field": "Job",
-              "valuefield": "JobBytes",
+              "valuefield": "JobMBytes",
               "size": 10,
               "order": "total",
               "chart": "pie",
@@ -602,7 +602,7 @@
                   2
                 ]
               },
-              "title": "Bytes per Jobs (TOP10)"
+              "title": "MB per Jobs (TOP10)"
             }
           ],
           "title": "Job information"
