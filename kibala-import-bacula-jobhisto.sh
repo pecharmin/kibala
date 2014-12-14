@@ -113,26 +113,27 @@ select concat(
 	', "VolIndex": ',		ifnull(jm.VolIndex, 'null'),
 	', "MediaBlocks": ',		ifnull(jm.EndBlock - jm.StartBlock, 0),
 
-        ', "LogText": ',		ifnull( ( select concat('"',
-						     replace(
-						       replace(
-							 replace(
-							   replace(
-							     replace(
-								group_concat(
-									concat(l.Time, ' ', l.LogText)
-						                        order by l.LogId separator ''
-								),
-								0x00, ''),
-							     '"', '\\\"'),
-							   '\n', '\\\n'),
-							 char(9), ''),
-						       char(13), ''), '"')
-						  from Log l
-						  where l.JobId = j.JobId
+        ', "LogText": [ ',		ifnull( ( select
+						group_concat(
+							concat('"', l.Time, ' ',
+						          replace(
+							    replace(
+							      replace(
+							        replace(
+							          replace(
+									l.LogText,
+							          0x00, ''),
+							        '"', '\\\"'),
+							      '\n', '\\\n'),
+							    char(9), ''),
+							  char(13), '')
+							, '"')
+						order by l.LogId separator ', ')
+						from Log l
+						where l.JobId = j.JobId
 						),
-						'null'
-					),
+						''
+					), ' ]',
 	' }'
 ) output
 from 	Job j
