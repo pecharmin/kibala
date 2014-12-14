@@ -8,7 +8,7 @@ ES_INDEX_DATE=${ES_INDEX_DATE:-$1}
 # Load configuration
 source $(dirname $0)/kibala.conf
 
-echo "Creating index '$ES_INDEX'..."
+echo "Creating index '$ES_INDEX' with ${ELASTICSEARCH_number_of_shards:-3}/${ELASTICSEARCH_number_of_replicas:-1} shards/replicas..."
 
 curl -s -XPUT $ES_URL/$ES_INDEX -d "{
 	\"settings\" : {
@@ -60,5 +60,10 @@ curl -s -XPUT $ES_URL/$ES_INDEX -d "{
 		}
 	}
 }"
+ret=$?
 
 echo
+
+[ $ret -ne 0 ] && echo "ERROR: Creation of index '$ES_INDEX' failed with return code $ret" >&2
+
+exit $?

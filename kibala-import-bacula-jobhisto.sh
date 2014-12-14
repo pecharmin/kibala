@@ -2,7 +2,7 @@
 # kibala-import-bacula-jobhisto.sh
 # Dump job history from Bacula database and import into ElasticSearch for kibala visualization
 
-echo "Indexing executed/planned jobs..."
+echo "Indexing executed and planned jobs..."
 
 # Load configuration
 source $(dirname $0)/kibala.conf
@@ -158,7 +158,19 @@ $WHERE_CONDITION
 order	by j.JobId desc
 EOF
 
+if [ "$KIBALA_QUIET" = "1" ]
+then
+	echo -n "Jobs read from database for index '$ES_INDEX': "
+	wc -l /tmp/kibala-spool | awk '{print $1}'
+fi
+
 curl -s -XPOST $ES_URL/_bulk --data-binary @/tmp/kibala-spool | format_es_response
-rm /tmp/kibala-spool
+ret=${PIPESTATUS[0]}
 
 echo
+
+[ $ret -ne 0 ] && echo "ERROR: Bulk insert of jobs failed with return code $ret" >&2
+
+rm /tmp/kibala-spool
+
+exit $ret
