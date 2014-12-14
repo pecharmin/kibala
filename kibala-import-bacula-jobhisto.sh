@@ -128,7 +128,7 @@ select concat(
 							    char(9), ''),
 							  char(13), '')
 							)
-						order by l.LogId separator '\\\\n')
+						order by l.LogId separator '')
 						from Log l
 						where l.JobId = j.JobId
 						),
