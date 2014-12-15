@@ -139,7 +139,7 @@ select concat(
 	', "Files": "',		ifnull( ( select
 							group_concat(
 								concat(pa.Path, fn.Name)
-								order by pa.Path, fn.Name separator '\\\\n')
+								separator '\\\\n')
 							from File fi
 							left join Path pa on fi.PathId = pa.PathId
 							left join Filename fn on fi.FilenameId = fn.FilenameId
